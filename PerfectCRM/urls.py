@@ -16,13 +16,15 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from crm import views
-
+from PerfectCRM import views as main_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^crm/', include("crm.urls")),
+    url(r'^$', main_views.PortalView.as_view()),
     url(r'^king_admin/', include("crm.kingadmin_urls")),
-    url(r'^stu/', include("crm.stu_urls")),
+    url(r'^stu/', include("student.urls")),
+    url(r'^teacher/', include("teacher.urls")),
     url(r'^account/login/', views.acc_login),
     url(r'^account/logout/', views.acc_logout,name='logout'),
 ]

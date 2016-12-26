@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crm',
+    'student',
+    'teacher',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +131,6 @@ AUTH_USER_MODEL = 'crm.UserProfile'
 
 LOGIN_URL = "/account/login/"
 
+
+
+BASE_HOMEWORK_DIR = "%s/data/homeworks/" %BASE_DIR

@@ -8,7 +8,9 @@ from django.contrib.auth.decorators import login_required
 
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from  crm.king_admin.king_admin import enabled_admins
+from crm.king_admin import forms as king_admin_forms
 from crm.king_admin import tables
+
 # Create your views here.
 
 @login_required
@@ -82,3 +84,115 @@ def acc_logout(request):
 
 
 
+
+@login_required
+def enrollment(request,customer_id):
+
+    #form = forms.EnrollmentForm()
+
+    fields = []
+    for field_obj in  models.Enrollment._meta.fields:
+        if field_obj.editable:
+            fields.append(field_obj.name)
+
+    print('fields:',fields)
+
+    customer_obj = models.Customer.objects.get(id=customer_id)
+    model_form  = king_admin_forms.create_form(models.Enrollment,
+                                 fields,
+                                 enabled_admins[models.Enrollment._meta.db_table])
+
+    form = model_form()
+    response_msg = {}
+    if request.method == "POST":
+
+        if request.POST.get('paid_fee'): #payment form
+            # 交费纪录
+            fields = []
+            for field_obj in models.PaymentRecord._meta.fields:
+                if field_obj.editable:
+                    fields.append(field_obj.name)
+
+            model_form = king_admin_forms.create_form(models.PaymentRecord,
+                                                      fields,
+                                                      enabled_admins[models.PaymentRecord._meta.db_table])
+
+            form = model_form(request.POST)
+            if form.is_valid():
+                form.save()
+                enroll_obj = form.instance.enrollment
+                customer_obj.status = "signed" #
+                customer_obj.save()
+                response_msg = {'msg': 'payment record got created,enrollment process is done', 'code': 4,
+                                'step': 5,}
+            else:
+                enroll_obj = None
+            return render(request, 'crm/enrollment.html',
+                          {'response': response_msg,
+                           'payment_form': form,
+                           'customer_obj': customer_obj,
+                           'enroll_obj': enroll_obj})
+
+        post_data = request.POST.copy()
+        print("post:",request.POST)
+        form = model_form(post_data)
+        exist_enrollment_objs = models.Enrollment.objects.filter(customer=customer_obj,course_grade=request.POST.get('course_grade'))
+        if exist_enrollment_objs:
+
+            if exist_enrollment_objs.filter(contract_agreed=True):
+                #学生已填写完报名表
+                enroll_obj = exist_enrollment_objs.get(contract_agreed=True)
+
+                if enroll_obj.contract_approved or request.POST.get('contract_approved') == "on":
+                    enroll_obj.contract_approved = True
+                    enroll_obj.save()
+
+                    if enroll_obj.paymentrecord_set.select_related().count() >0: #already has payment record
+                        response_msg = {'msg': '已报名成功', 'code': 5, 'step': 6}
+                        return render(request, 'crm/enrollment.html',
+                                      {'response': response_msg,
+                                       'customer_obj':customer_obj})
+                    else:
+                        response_msg = {'msg': 'contract approved, waiting for payment record to be created', 'code': 3, 'step': 4}
+
+                        #交费纪录
+                        fields = []
+                        for field_obj in models.PaymentRecord._meta.fields:
+                            if field_obj.editable:
+                                fields.append(field_obj.name)
+
+                        model_form = king_admin_forms.create_form(models.PaymentRecord,
+                                                                  fields,
+                                                                  enabled_admins[models.PaymentRecord._meta.db_table])
+
+                        form = model_form()
+
+                        return render(request, 'crm/enrollment.html',
+                                      {'response': response_msg,
+                                       'payment_form': form,
+                                       'customer_obj': customer_obj,
+                                       'enroll_obj':enroll_obj})
+
+                else:
+                    response_msg = {'msg': 'waiting for contract approval', 'code':2,'step':3}
+                form = model_form(post_data, instance=enroll_obj)
+
+            else:
+
+                response_msg = {'msg':'enrollment_form exist','code':1,'step':2}
+
+            form.add_error('customer', '报名表已存在')
+        #form.cleaned_data['customer'] = customer_obj
+
+        if form.is_valid():
+            form.save()
+            response_msg = {'msg': 'enrollment_form created', 'code': 1, 'step': 2}
+    else:
+        response_msg = {'msg': 'create enrollment form', 'code': 0, 'step': 1}
+    return render(request,'crm/enrollment.html',{'response':response_msg,'enrollment_form':form,'customer_obj':customer_obj})
+
+
+
+def stu_enrollment(request,customer_id):
+
+    return render(request,'crm/stu_enrollment.html')

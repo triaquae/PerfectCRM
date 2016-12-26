@@ -26,8 +26,15 @@ class CustomerAdmin(ModelAdminBase):
     def enroll(self):
         '''报名'''
         print("customize field enroll",self)
-        return '''<a class="btn-link" href="#">报名</a> '''
+        link_name = "报名"
+        if self.instance.status == "signed":
+            link_name = "报名新课程"
+        return '''<a class="btn-link" href="/crm/enrollment/%s/">%s</a> ''' % (self.instance.id,link_name)
     enroll.display_name = "报名链接"
+
+class EnrollmentAdmin(ModelAdminBase):
+    model = models.Enrollment
+    list_display = ['customer','school','course_grade','contract_agreed','contract_approved','enrolled_date']
 
 class ClasslistAdmin(ModelAdminBase):
     model = models.ClassList
@@ -37,5 +44,14 @@ class ClasslistAdmin(ModelAdminBase):
     default_actions = ['delete_selected','dd秀d']
     readonly_table = True
 
+class PaymentRecordAdmin(ModelAdminBase):
+    model = models.PaymentRecord
+    list_filter = ('pay_type','date','consultant')
+    list_display = ('id','enrollment','pay_type','paid_fee','date','consultant')
+    fk_fields = ('enrollment','consultant')
+    choice_fields = ('pay_type')
+
 register(enabled_admins,CustomerAdmin)
 register(enabled_admins,ClasslistAdmin)
+register(enabled_admins,EnrollmentAdmin)
+register(enabled_admins,PaymentRecordAdmin)

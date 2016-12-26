@@ -20,6 +20,12 @@ class CustomerForm(ModelForm):
             #print("required:",field.required)
         #else:
 
+
+class EnrollmentForm(ModelForm):
+    class Meta:
+        model = models.Enrollment
+        exclude = ()
+
 def get_orderby(request,model_objs,admin_form):
     orderby_field = request.GET.get('orderby')
     if orderby_field:

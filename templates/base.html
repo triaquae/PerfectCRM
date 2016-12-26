@@ -26,8 +26,10 @@
 	<!--Font Awesome [ OPTIONAL ]-->
 	<link href="/static/css/font-awesome.min.css" rel="stylesheet">
 
+	<link href="/static/plugins/dropzone/dropzone.css" rel="stylesheet">
 
-	
+
+	{% block header-extra-recourses %}{% endblock %}
 
 	<!--SCRIPT-->
 	<!--=================================================-->
@@ -37,28 +39,9 @@
 	<script src="/static/js/pace.min.js"></script>
 
 
-	
-	<!--
-
-	REQUIRED
-	You must include this in your project.
-
-	RECOMMENDED
-	This category must be included but you may modify which plugins or components which should be included in your project.
-
-	OPTIONAL
-	Optional plugins. You may choose whether to include it in your project or not.
-
-
-	Detailed information and more samples can be found in the document.
-
-	-->
-		
 
 </head>
 
-<!--TIPS-->
-<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
 
 <body>
 {% block body  %}
@@ -82,6 +65,7 @@ you own body data....
 	
 	<!--Nifty Admin [ RECOMMENDED ]-->
 	<script src="/static/js/nifty.min.js"></script>
+	<script src="/static/plugins/dropzone/dropzone_latest.js"></script>
 
 	
     <script>
@@ -94,7 +78,11 @@ you own body data....
         });//end doc ready
 
     </script>
-		
 
+
+{% block bottom-js %}
+{% endblock %}
+
+{% block extra-js %}{% endblock %}
 </body>
 </html>

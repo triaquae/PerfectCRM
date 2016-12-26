@@ -87,7 +87,7 @@ class Enrollment(models.Model):
     school = models.ForeignKey('Branch', verbose_name='校区')
 
     #选择他报的班级，班级是关联课程的，比如python开发10期
-    course_grade = models.ForeignKey("ClassList", verbose_name=u"所报班级")
+    course_grade = models.ForeignKey("ClassList", verbose_name="所报班级")
     why_us = models.TextField("为什么报名老男孩", max_length=1024, default=None, blank=True, null=True)
     your_expectation = models.TextField("学完想达到的具体期望", max_length=1024, blank=True, null=True)
     contract_agreed = models.BooleanField("我已认真阅读完培训协议并同意全部协议内容")
@@ -97,7 +97,7 @@ class Enrollment(models.Model):
     memo = models.TextField('备注', blank=True, null=True)
 
     def __str__(self):
-        return self.customer.qq
+        return "<%s  课程:%s>" %(self.customer ,self.course_grade)
 
     class Meta:
         verbose_name = '学员报名表'
@@ -105,6 +105,7 @@ class Enrollment(models.Model):
         unique_together = ("customer", "course_grade")
         #这里为什么要做个unique_together联合唯一？因为老男孩有很多个课程， 学生学完了一个觉得好的话，以后还可以再报其它班级，
         #每报一个班级，就得单独创建一条报名记录，所以这里想避免重复数据的话，就得搞个"客户 + 班级"的联合唯一喽
+
 
 class CustomerFollowUp(models.Model):
     '''存储客户的后续跟进信息'''
@@ -136,6 +137,9 @@ class ClassList(models.Model):
     #创建班级时需要选择这个班所学的课程
     branch = models.ForeignKey("Branch",verbose_name="校区")
     course = models.ForeignKey("Course",verbose_name=u"课程")
+    class_type_choices = ((0,'面授'),(1,'随到随学网络'))
+    class_type = models.SmallIntegerField(choices=class_type_choices,default=0)
+    total_class_nums = models.PositiveIntegerField("课程总节次",default=10)
     semester = models.IntegerField(u"学期")
     price = models.IntegerField(u"学费", default=10000)
     start_date = models.DateField(u"开班日期")
@@ -143,8 +147,8 @@ class ClassList(models.Model):
     #选择这个班包括的讲师，可以是多个
     teachers = models.ManyToManyField("UserProfile", verbose_name=u"讲师")
 
-    # def __str__(self):
-    #     return "%s(%s)" % (self.course, self.semester)
+    def __str__(self):
+         return "%s(%s)" % (self.course, self.semester)
 
     class Meta:
         verbose_name = u'班级列表'
@@ -176,6 +180,8 @@ class CourseRecord(models.Model):
     date = models.DateField(auto_now_add=True, verbose_name="上课日期")
     teacher = models.ForeignKey("UserProfile", verbose_name="讲师")
     has_homework = models.BooleanField(default=True, verbose_name="本节有作业")
+    homework_title = models.CharField(max_length=128,blank=True,null=True)
+    homework_requirement = models.TextField(blank=True,null=True)
 
     def __str__(self):
         return "%s 第%s天" % (self.course, self.day_num)
@@ -343,3 +349,24 @@ class SubMenu(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
+class PaymentRecord(models.Model):
+    enrollment = models.ForeignKey("Enrollment")
+    pay_type_choices = (('deposit', u"订金/报名费"),
+                        ('tution', u"学费"),
+                        ('refund', u"退款"),
+                        )
+    pay_type = models.CharField("费用类型", choices=pay_type_choices, max_length=64, default="deposit")
+    paid_fee = models.IntegerField("费用数额", default=0)
+    note = models.TextField("备注",blank=True, null=True)
+    date = models.DateTimeField("交款日期", auto_now_add=True)
+    consultant = models.ForeignKey(UserProfile, verbose_name="负责老师", help_text="谁签的单就选谁")
+
+    def __str__(self):
+        return "%s, 类型:%s,数额:%s" %(self.enrollment.customer, self.pay_type, self.paid_fee)
+
+    class Meta:
+        verbose_name = '交款纪录'
+        verbose_name_plural = "交款纪录"

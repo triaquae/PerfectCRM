@@ -104,6 +104,16 @@ class RoleAdmin(admin.ModelAdmin):
     list_display = ('name',)
     filter_horizontal = ('menus',)
 
+class EnrollmentAdmin(admin.ModelAdmin):
+    list_display = ('customer','course_grade','school','enrolled_date','contract_agreed','contract_approved')
+
+
+class PaymentRecordAdmin(admin.ModelAdmin):
+    list_display = ('enrollment','pay_type','paid_fee','date','consultant')
+
+class StudyRecordAdmin(admin.ModelAdmin):
+    list_display = ('student','course_record','record','score','date')
+
 admin.site.register(models.Customer,CustomerAdmin)
 admin.site.register(models.CustomerFollowUp)
 admin.site.register(models.Branch)
@@ -111,9 +121,10 @@ admin.site.register(models.ClassList)
 admin.site.register(models.Course)
 admin.site.register(models.Role,RoleAdmin)
 admin.site.register(models.UserProfile,UserProfileAdmin)
-admin.site.register(models.Enrollment)
+admin.site.register(models.Enrollment,EnrollmentAdmin)
 admin.site.register(models.StuAccount)
 admin.site.register(models.CourseRecord)
-admin.site.register(models.StudyRecord)
+admin.site.register(models.StudyRecord,StudyRecordAdmin)
 admin.site.register(models.FirstLayerMenu,MenuAdmin)
 admin.site.register(models.SubMenu,SubMenuAdmin)
+admin.site.register(models.PaymentRecord,PaymentRecordAdmin)

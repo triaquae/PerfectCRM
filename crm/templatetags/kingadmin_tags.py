@@ -93,7 +93,7 @@ def build_table_row(row_obj,table_obj,onclick_column=None,target_link=None):
             if column_name in table_obj.choice_fields:
                 column_data = getattr(row_obj,'get_%s_display'%column_name)()
             if column_name in table_obj.fk_fields:
-                column_data = getattr(row_obj,column_name).__str__()
+                column_data = r"%s" %getattr(row_obj,column_name).__str__().strip("<>")
             if 'DateTimeField' in field_obj.__repr__():
                 column_data = getattr(row_obj,column_name).strftime( "%Y-%m-%d %H:%M:%S") \
                         if getattr(row_obj,column_name) else None
@@ -121,6 +121,7 @@ def build_table_row(row_obj,table_obj,onclick_column=None,target_link=None):
 
         elif hasattr(table_obj.admin_class, column_name): #customized field
             field_func = getattr(table_obj.admin_class, column_name)
+            table_obj.admin_class.instance = row_obj
             column = "<td>%s</td>" % field_func()
 
         row_ele += column
