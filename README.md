@@ -11,6 +11,29 @@
 
 >   注：此项目依然在活跃开发中，必然还有很多bug,但是做为课件来学习是非常不错的。
 
+
+###使用中的bug可加此群汇报
+qq: python开发交流群 255012808 
+
 ##以下为一些项目截图
 
 ####项目入口
+
+![image](https://github.com/triaquae/PerfectCRM/blob/master/share/screeshots/portal.png)
+
+####客户页面及在kingadmin里的配置
+
+![image](https://github.com/triaquae/PerfectCRM/blob/master/share/screeshots/crm课件.png)
+
+
+####学员注册页
+
+![image](https://github.com/triaquae/PerfectCRM/blob/master/share/screeshots/stu_enroll.png)
+
+
+####kingadmin配置页
+
+![image](https://github.com/triaquae/PerfectCRM/blob/master/share/screeshots/king_admin.png)
+
+
+
