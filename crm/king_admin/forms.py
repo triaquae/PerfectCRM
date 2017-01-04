@@ -57,6 +57,12 @@ def default_clean(self):
                 self.add_error(field,"Readonly Field: field should be '{value}' ,not '{new_value}' ".\
                                      format(**{'value':old_field_val,'new_value':form_val}))
 
+    # #check unique contrains
+    # for field in self.Meta.fields:
+    #     field_obj = self.Meta.model._meta.get_field(field)
+    #     if field_obj.unique:
+    #
+
 def create_form(model,fields,admin_class,form_create=False,**kwargs):
     class Meta:
         pass

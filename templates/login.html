@@ -40,6 +40,15 @@
 								<input type="password" name="password" class="form-control" placeholder="Password">
 							</div>
 						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-addon">
+                                    <img height="30px" src="/static/verify_code_imgs/{{ today_str }}/{{ filename }}.png">
+                                </div>
+								<input style="height: 50px" type="text" name="verify_code" class="form-control" placeholder="验证码">
+								<input  type="hidden" name="verify_code_key" value="{{ filename }}" >
+							</div>
+						</div>
 						<div class="row">
 							<div class="col-xs-8 text-left checkbox">
 								<label class="form-checkbox form-icon">
@@ -52,8 +61,8 @@
 								</div>
 							</div>
 						</div>
-                        {% if login_err %}
-                            <span style="color: red">{{ login_err }}</span>
+                        {% if error %}
+                            <span style="color: red">{{ error.error }}</span>
                         {% endif %}
 
 					</form>

@@ -51,7 +51,28 @@ class PaymentRecordAdmin(ModelAdminBase):
     fk_fields = ('enrollment','consultant')
     choice_fields = ('pay_type')
 
+class CourseRecordAdmin(ModelAdminBase):
+    model = models.CourseRecord
+    list_display = ('course','day_num','date','teacher','has_homework','homework_title','study_records')
+    fk_fields = ('course','teacher')
+    list_filter = ('course','teacher','has_homework','day_num')
+    def study_records(self):
+        ele = '''<a class="btn-link" href='/king_admin/crm_studyrecord/?&course_record=%s' >学员成绩</a>''' \
+              %(self.instance.id)
+
+        return ele
+    study_records.display_name = "学员学习记录"
+class StudyRecordAdmin(ModelAdminBase):
+    model = models.StudyRecord
+    list_display = ('student','course_record','record','score','date','note')
+    list_filter = ('student','course_record')
+    choice_fields = ('record','score')
+    fk_fields = ('student','course_record')
+
+
 register(enabled_admins,CustomerAdmin)
 register(enabled_admins,ClasslistAdmin)
 register(enabled_admins,EnrollmentAdmin)
 register(enabled_admins,PaymentRecordAdmin)
+register(enabled_admins,CourseRecordAdmin)
+register(enabled_admins,StudyRecordAdmin)

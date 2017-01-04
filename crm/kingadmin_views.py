@@ -2,6 +2,9 @@
 
 from django.shortcuts import render,HttpResponseRedirect,Http404,redirect
 
+from django.core.exceptions import ObjectDoesNotExist
+from django.db import IntegrityError
+
 from django.contrib.auth.decorators import login_required
 
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
@@ -9,7 +12,7 @@ from  crm.king_admin.king_admin import enabled_admins
 from crm.king_admin import tables
 from crm.king_admin import forms
 from crm import models
-
+import re
 
 
 @login_required
@@ -104,7 +107,9 @@ def table_change(request,table_name,obj_id):
             print("post:",request.POST)
             form_obj = model_form(request.POST,instance=obj)
             if form_obj.is_valid():
-                form_obj.save()
+                form_obj.validate_unique()
+                if form_obj.is_valid():
+                    form_obj.save()
 
         return render(request,'king_admin/table_change.html',
                       {'form_obj':form_obj,
@@ -145,7 +150,9 @@ def table_add(request,table_name):
         for field_obj in enabled_admins[table_name].model._meta.many_to_many:
             fields.append(field_obj.name)
         if enabled_admins[table_name].add_form == None:
-            model_form = forms.create_form(enabled_admins[table_name].model, fields,enabled_admins[table_name],form_create=True,request=request)
+            model_form = forms.create_form(enabled_admins[table_name].model,
+                                           fields,enabled_admins[table_name],
+                                           form_create=True,request=request)
         else: #this admin has customized  creation form defined
             model_form = enabled_admins[table_name].add_form
 
@@ -154,12 +161,16 @@ def table_add(request,table_name):
         elif request.method == "POST":
             form_obj = model_form(request.POST)
             if form_obj.is_valid():
-                form_obj.save()
-                print("form obj:",form_obj.cleaned_data,form_obj.instance.id)
-                redirect_url = '/%s/change/%s' %(request.path.strip("/add"), form_obj.instance.id)
-                return redirect(redirect_url)
-            if request.POST.get('_continue') is not None: #save and add another button
-                form_obj = model_form()
+                form_obj.validate_unique()
+                if form_obj.is_valid():
+                    form_obj.save()
+                    print("form obj:",form_obj.cleaned_data,form_obj.instance.id)
+                    redirect_url = '%s/%s/' %( re.sub("add/$", "change",request.path), form_obj.instance.id)
+                    print('redirect url',redirect_url)
+                    return redirect(redirect_url)
+
+            # if request.POST.get('_continue') is not None: #save and add another button
+            #     form_obj = model_form()
 
         return render(request, 'king_admin/table_add.html',
                       {'form_obj': form_obj,

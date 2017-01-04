@@ -73,6 +73,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'PerfectCRM.wsgi.application'
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
@@ -131,6 +137,6 @@ AUTH_USER_MODEL = 'crm.UserProfile'
 
 LOGIN_URL = "/account/login/"
 
+VERIFICATION_CODE_IMGS_DIR = "%s/statics/verify_code_imgs/" %BASE_DIR
 
-
-BASE_HOMEWORK_DIR = "%s/data/homeworks/" %BASE_DIR
+BASE_HOMEWORK_DIR = "%s/data/homeworks/" % BASE_DIR
