@@ -290,11 +290,14 @@ class UserProfile(auth.AbstractBaseUser, auth.PermissionsMixin):
         verbose_name = 'CRM账户'
         verbose_name_plural = 'CRM账户'
 
-        # permissions = (
-        #     ('web_access_dashboard', '可以访问 审计主页'),
-        #     ('web_batch_cmd_exec', '可以访问 批量命令执行页面'),
-        #
-        # )
+        permissions = (
+            ('crm_table_list', '可以访问 kingadmin 每个表的数据列表页'),
+            ('crm_table_index', '可以访问 kingadmin 首页'),
+            ('crm_table_list_view', '可以访问 kingadmin 每个表中对象的修改页'),
+            ('crm_table_list_change', '可以修改 kingadmin 每个表中对象'),
+            ('crm_table_list_action', '可以操作 每个表的 action 功能'),
+
+        )
 
 
 

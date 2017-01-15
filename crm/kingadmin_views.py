@@ -11,19 +11,23 @@ from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from  crm.king_admin.king_admin import enabled_admins
 from crm.king_admin import tables
 from crm.king_admin import forms
+from crm.king_admin.permissions import check_permission
 from crm import models
 import re
 
 
+
+@check_permission
 @login_required
 def configure_index(request):
 
-    return render(request,'king_admin/index.html', {'enabled_admins':enabled_admins})
+    return render(request,'king_admin/index.html', {'enabled_admins':enabled_admins,
+                                                    })
 
 
 
 
-#@permissions.check_permission
+@check_permission
 @login_required
 def configure_url_dispatch(request,url):
     print('---url dispatch',url)
@@ -77,12 +81,15 @@ def configure_url_dispatch(request,url):
 
         return render(request,'king_admin/model_obj_list.html',
                                                 {'table_obj':table_obj,
-
+                                                 'active_url': '/king_admin/',
                                                  'paginator':paginator})
 
     else:
         raise Http404("url %s not found" % url )
 
+
+
+@check_permission
 @login_required
 def table_change(request,table_name,obj_id):
     print("table change:",table_name ,obj_id)
@@ -113,7 +120,7 @@ def table_change(request,table_name,obj_id):
 
         return render(request,'king_admin/table_change.html',
                       {'form_obj':form_obj,
-
+                       'active_url': '/king_admin/',
                       'model_name':enabled_admins[table_name].model._meta.verbose_name,
                       'model_db_table': enabled_admins[table_name].model._meta.db_table,
                        'admin_class':enabled_admins[table_name]
@@ -176,8 +183,27 @@ def table_add(request,table_name):
                       {'form_obj': form_obj,
                        'model_name': enabled_admins[table_name].model._meta.verbose_name,
                        'model_db_table':enabled_admins[table_name].model._meta.db_table,
-                       'admin_class': enabled_admins[table_name]
+                       'admin_class': enabled_admins[table_name],
+                       'active_url': '/king_admin/',
                        })
 
     else:
         raise Http404("url %s not found" % table_name)
+
+
+
+@login_required
+def password_reset_form(request,table_db_name,user_id):
+    user_obj = models.UserProfile.objects.get(id=user_id)
+    if request.method == "GET":
+        change_form = enabled_admins[table_db_name].add_form(instance=user_obj)
+    else:
+        change_form = enabled_admins[table_db_name].add_form(request.POST,instance=user_obj)
+        if change_form.is_valid():
+            change_form.save()
+            url = "/%s/" %request.path.strip("/password/")
+            return redirect(url)
+
+    return render(request,'king_admin/password_change.html',{'user_obj':user_obj,
+                                                  'form':change_form})
+

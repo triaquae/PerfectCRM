@@ -70,7 +70,14 @@ you own body data....
 	
     <script>
         $(document).ready(function () {
-            var active_menu = $("#mainnav-menu ").find("a[href='{{ request.path }}']");
+
+            if ("{{ active_url }}"){
+               var active_url = "{{ active_url }}" ;
+            }else {
+               var active_url = "{{ request.path  }}" ;
+
+            }
+            var active_menu = $("#mainnav-menu ").find("a[href='"+ active_url +"']");
             active_menu.parent().addClass("active-link");
             if (active_menu.parent().parent().hasClass("collapse")){
                 active_menu.parent().parent().addClass("in");

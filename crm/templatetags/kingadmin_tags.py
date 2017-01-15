@@ -359,8 +359,10 @@ def add_onclick_link(form_obj,field_obj):
     if field_obj.name in form_obj.Meta.admin.change_page_onclick_fields:
         # link_url = url_reverse(form_obj.Meta.admin.change_page_onclick_fields[field_obj.name][0],
         #                        args=(form_obj.instance.id,))
-        link_ele = '''<a class="btn-link" href="password/" >%s</a>''' % \
-                        (form_obj.Meta.admin.change_page_onclick_fields[field_obj.name][1])
+        link_ele = '''<a class="btn-link" href="%s/" >%s</a>''' % \
+                        (form_obj.Meta.admin.change_page_onclick_fields[field_obj.name][0],
+                        form_obj.Meta.admin.change_page_onclick_fields[field_obj.name][1],
+                         )
         return mark_safe(link_ele)
     return ''
 

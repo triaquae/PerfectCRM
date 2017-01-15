@@ -15,10 +15,3 @@ function RemoveDisabledAttrs() {
     $("select").removeAttr("disabled");
 }
 
-function ChoseAllOptions(from_select_ele_id,target_select_ele_id) {
-    console.log(from_select_ele_id +'--' +  target_select_ele_id);
-    var from_options = $("#"+from_select_ele_id + " option");
-
-    console.log(from_options);
-    $("#" +target_select_ele_id).append(from_options);
-}
