@@ -1,6 +1,8 @@
 from django.db import models
 from  crm import auth
 from django import forms
+from django.utils.translation import ugettext_lazy as _
+from django.utils.safestring import mark_safe
 # Create your models here.
 
 
@@ -228,7 +230,11 @@ class UserProfile(auth.AbstractBaseUser, auth.PermissionsMixin):
         verbose_name='email address',
         max_length=255,
         unique=True,
+
     )
+    password = models.CharField(_('password'), max_length=128,
+                                help_text=mark_safe('''<a class='btn-link' href='password'>重置密码</a>'''))
+
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(

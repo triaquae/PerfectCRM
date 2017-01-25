@@ -9,6 +9,7 @@ class CustomerForm(ModelForm):
     class Meta:
         model = models.Customer
         exclude = ()
+        readonly_fields = ['qq', 'consultant']
     def __init__(self,*args,**kwargs):
         super(CustomerForm, self).__init__(*args, **kwargs)
         #self.fields['customer_note'].widget.attrs['class'] = 'form-control'
@@ -17,7 +18,10 @@ class CustomerForm(ModelForm):
             field = self.base_fields[field_name]
 
             field.widget.attrs.update({'class': 'form-control'})
-            #print("required:",field.required)
+            if field_name in CustomerForm.Meta.readonly_fields:
+                field.widget.attrs.update({'disabled': 'disabled'})
+
+                #print("required:",field.required)
         #else:
 
 
@@ -25,6 +29,7 @@ class EnrollmentForm(ModelForm):
     class Meta:
         model = models.Enrollment
         exclude = ()
+
 
 def get_orderby(request,model_objs,admin_form):
     orderby_field = request.GET.get('orderby')

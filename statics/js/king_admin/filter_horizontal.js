@@ -15,3 +15,8 @@ function RemoveDisabledAttrs() {
     $("select").removeAttr("disabled");
 }
 
+
+
+function  PostAndAddAnother() {
+    console.log($("form"))
+}

@@ -8,10 +8,10 @@ from django.db import IntegrityError
 from django.contrib.auth.decorators import login_required
 
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
-from  crm.king_admin.king_admin import enabled_admins
-from crm.king_admin import tables
-from crm.king_admin import forms
-from crm.king_admin.permissions import check_permission
+from  crm.king_admin_old.king_admin import enabled_admins
+from crm.king_admin_old import tables
+from crm.king_admin_old import forms
+from crm.king_admin_old.permissions import check_permission
 from crm import models
 import re
 
@@ -81,7 +81,7 @@ def configure_url_dispatch(request,url):
 
         return render(request,'king_admin/model_obj_list.html',
                                                 {'table_obj':table_obj,
-                                                 'active_url': '/king_admin/',
+                                                 'active_url': '/kingadmin/',
                                                  'paginator':paginator})
 
     else:
@@ -120,7 +120,7 @@ def table_change(request,table_name,obj_id):
 
         return render(request,'king_admin/table_change.html',
                       {'form_obj':form_obj,
-                       'active_url': '/king_admin/',
+                       'active_url': '/kingadmin/',
                       'model_name':enabled_admins[table_name].model._meta.verbose_name,
                       'model_db_table': enabled_admins[table_name].model._meta.db_table,
                        'admin_class':enabled_admins[table_name]
@@ -184,7 +184,7 @@ def table_add(request,table_name):
                        'model_name': enabled_admins[table_name].model._meta.verbose_name,
                        'model_db_table':enabled_admins[table_name].model._meta.db_table,
                        'admin_class': enabled_admins[table_name],
-                       'active_url': '/king_admin/',
+                       'active_url': '/kingadmin/',
                        })
 
     else:

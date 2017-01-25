@@ -10,9 +10,9 @@ from PerfectCRM import settings
 from django.core.cache import cache
 
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
-from  crm.king_admin.king_admin import enabled_admins
-from crm.king_admin import forms as king_admin_forms
-from crm.king_admin import tables
+from  crm.king_admin_old.king_admin import enabled_admins
+from crm.king_admin_old import forms as king_admin_forms
+from crm.king_admin_old import tables
 import datetime,os,random,string
 from crm import verify_code
 
@@ -202,25 +202,37 @@ def enrollment(request,customer_id):
                                        'enroll_obj':enroll_obj})
 
                 else:
-                    response_msg = {'msg': 'waiting for contract approval', 'code':2,'step':3}
+                    response_msg = {'msg': 'waiting for contract approval',
+                                    'code':2,'step':3,
+                                    'enroll_boj':enroll_obj}
                 form = model_form(post_data, instance=enroll_obj)
 
             else:
 
-                response_msg = {'msg':'enrollment_form exist','code':1,'step':2}
+                response_msg = {'msg':'enrollment_form already exist',
+                                'code':1,'step':2,
+                                'enroll_obj':exist_enrollment_objs[0],
+                                }
 
             form.add_error('customer', '报名表已存在')
         #form.cleaned_data['customer'] = customer_obj
 
         if form.is_valid():
             form.save()
-            response_msg = {'msg': 'enrollment_form created', 'code': 1, 'step': 2}
+            response_msg = {'msg': 'enrollment_form created',
+                            'enroll_obj':form.instance,'code': 1, 'step': 2}
     else:
         response_msg = {'msg': 'create enrollment form', 'code': 0, 'step': 1}
-    return render(request,'crm/enrollment.html',{'response':response_msg,'enrollment_form':form,'customer_obj':customer_obj})
+    return render(request,'crm/enrollment.html',{'response':response_msg,
+                                                 'enrollment_form':form,
+                                                 'customer_obj':customer_obj,
+                                                 })
 
 
 
-def stu_enrollment(request,customer_id):
+def stu_enrollment(request,enrollment_id):
 
-    return render(request,'crm/stu_enrollment.html')
+    enroll_obj = models.Enrollment.objects.get(id=enrollment_id)
+    customer_form = forms.CustomerForm(instance=enroll_obj.customer)
+    return render(request,'crm/stu_enrollment.html', {'enroll_obj':enroll_obj,
+                                                      'customer_form':customer_form})

@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'kingadmin',
     'crm',
     'student',
     'teacher',
@@ -57,7 +58,8 @@ ROOT_URLCONF = 'PerfectCRM.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),
+                 ]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -129,9 +131,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
+STATICFILES_DIRS = [
     "%s/%s" %(BASE_DIR, "statics"),
-)
+    #"%s/%s" %(BASE_DIR, "kingadmin/statics"),
+]
 
 AUTH_USER_MODEL = 'crm.UserProfile'
 
