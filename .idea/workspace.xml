@@ -2,219 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b28c9112-c3a2-4a14-8f33-cb42fecae9e8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/fonts/FontAwesome.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/fonts/fontawesome-webfont.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/fonts/fontawesome-webfont.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/fonts/fontawesome-webfont.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/fonts/fontawesome-webfont.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/fonts/glyphicons-halflings-regular.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/img/av1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/img/av2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/img/av4.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/img/balloon.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/img/bg-img-6.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/img/collapsed.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/img/error.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/img/expanded.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/img/flags/france.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/img/flags/germany.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/img/flags/italy.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/img/flags/spain.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/img/flags/united-kingdom.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/img/flags/united-kingdom.png.tmp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/img/login-bg.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/img/login.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/img/logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/img/offcanvas.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/img/revealing.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/img/slidein.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/img/loading-sm.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/img/loading.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/crm/king_admin_old/king_admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/admin_base.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/permission_list.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/permissions.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/settings.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/custom.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/font-awesome.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/nifty.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/pace.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-a/theme-coffee.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-a/theme-dark.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-a/theme-dust.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-a/theme-light.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-a/theme-lime.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-a/theme-mint.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-a/theme-navy.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-a/theme-ocean.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-a/theme-prickly-pear.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-a/theme-purple.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-a/theme-well-red.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-a/theme-yellow.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-b/theme-coffee.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-b/theme-dark.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-b/theme-dust.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-b/theme-light.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-b/theme-lime.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-b/theme-mint.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-b/theme-navy.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-b/theme-ocean.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-b/theme-prickly-pear.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-b/theme-purple.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-b/theme-well-red.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-b/theme-yellow.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-c/theme-coffee.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-c/theme-dark.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-c/theme-dust.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-c/theme-light.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-c/theme-lime.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-c/theme-mint.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-c/theme-navy.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-c/theme-ocean.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-c/theme-prickly-pear.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-c/theme-purple.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-c/theme-well-red.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/css/themes/type-c/theme-yellow.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/fonts/fontawesome-webfont.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/fonts/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/js/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/js/fastclick.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/js/jquery-2.1.1.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/js/kingadmin/filter_horizontal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/js/kingadmin/king_admin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/js/nifty.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/js/pace.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-select/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-select/bootstrap-select.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-select/bootstrap-select.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-select/bootstrap-select.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-select/bootstrap-select.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-wizard/MIT-LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-wizard/examples/basic-custom.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-wizard/examples/basic-custombuttons.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-wizard/examples/basic-custombuttonsfirstlast.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-wizard/examples/basic-disabletabclick.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-wizard/examples/basic-finishbutton.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-wizard/examples/basic-formvalidation.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-wizard/examples/basic-inverse.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-wizard/examples/basic-pills.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-wizard/examples/basic-progressbar.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-wizard/examples/basic-tabsleft.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-wizard/examples/basic.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-wizard/examples/custom.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-wizard/examples/multiple.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-wizard/examples/remove-step.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-wizard/examples/validation.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-wizard/form-wizard.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-wizard/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-wizard/jquery.bootstrap.wizard.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/dropzone/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/dropzone/dropzone.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/dropzone/dropzone.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/dropzone/dropzone.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/dropzone/dropzone_latest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/dropzone/dropzone_old.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/CHANGE.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/LICENSE.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/composer.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/css/fileinput.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/css/fileinput.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/examples/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/fileinput.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/fileinput.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/LANG.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/ar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/bg.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/ca.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/cr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/cz.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/da.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/de.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/el.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/es.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/fa.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/fi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/fr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/hu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/id.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/it.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/ja.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/nl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/pl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/pt-BR.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/pt.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/ro.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/ru.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/sk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/sl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/th.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/tr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/uk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/vi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/zh-TW.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/locales/zh.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/plugins/canvas-to-blob.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/plugins/canvas-to-blob.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/plugins/purify.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/plugins/purify.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/plugins/sortable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/js/plugins/sortable.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/nuget/Package.nuspec" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/nuget/build.bat" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/sass/fileinput.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/themes/fa/theme.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/statics/kingadmin/plugins/fileinput/themes/gly/theme.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/tables.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/templates/kingadmin/app_index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/templates/kingadmin/base.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/templates/kingadmin/filter_horizontal_multi_select.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/templates/kingadmin/filter_search_box.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/templates/kingadmin/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/templates/kingadmin/login.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/templates/kingadmin/model_obj_list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/templates/kingadmin/password_change.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/templates/kingadmin/table_add.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/templates/kingadmin/table_change.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/templates/kingadmin/table_delete.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/templates/kingadmin/table_objs_delete.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/templatetags/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/templatetags/admin_tags.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kingadmin/urls.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/crm/king_admin/__init__.py" afterPath="$PROJECT_DIR$/crm/king_admin_old/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/crm/king_admin/admin_base.py" afterPath="$PROJECT_DIR$/crm/king_admin_old/admin_base.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/crm/king_admin/forms.py" afterPath="$PROJECT_DIR$/crm/king_admin_old/forms.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/crm/king_admin/king_admin.py" afterPath="$PROJECT_DIR$/kingadmin/king_admin.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/crm/king_admin/permission_list.py" afterPath="$PROJECT_DIR$/crm/king_admin_old/permission_list.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/crm/king_admin/permissions.py" afterPath="$PROJECT_DIR$/crm/king_admin_old/permissions.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/crm/king_admin/tables.py" afterPath="$PROJECT_DIR$/crm/king_admin_old/tables.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PerfectCRM/settings.py" afterPath="$PROJECT_DIR$/PerfectCRM/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PerfectCRM/urls.py" afterPath="$PROJECT_DIR$/PerfectCRM/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crm/forms.py" afterPath="$PROJECT_DIR$/crm/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crm/kingadmin_urls.py" afterPath="$PROJECT_DIR$/crm/kingadmin_urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crm/kingadmin_views.py" afterPath="$PROJECT_DIR$/crm/kingadmin_views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crm/models.py" afterPath="$PROJECT_DIR$/crm/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crm/views.py" afterPath="$PROJECT_DIR$/crm/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/statics/js/king_admin/filter_horizontal.js" afterPath="$PROJECT_DIR$/statics/js/king_admin/filter_horizontal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/crm/enrollment.html" afterPath="$PROJECT_DIR$/templates/crm/enrollment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/crm/stu_enrollment.html" afterPath="$PROJECT_DIR$/templates/crm/stu_enrollment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/king_admin/index.html" afterPath="$PROJECT_DIR$/templates/king_admin/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/king_admin/model_obj_list.html" afterPath="$PROJECT_DIR$/templates/king_admin/model_obj_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/king_admin/password_change.html" afterPath="$PROJECT_DIR$/templates/king_admin/password_change.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/king_admin/table_add.html" afterPath="$PROJECT_DIR$/templates/king_admin/table_add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/king_admin/table_change.html" afterPath="$PROJECT_DIR$/templates/king_admin/table_change.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/king_admin/table_delete.html" afterPath="$PROJECT_DIR$/templates/king_admin/table_delete.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/king_admin/table_objs_delete.html" afterPath="$PROJECT_DIR$/templates/king_admin/table_objs_delete.html" />
     </list>
     <ignored path="PerfectCRM.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -261,7 +49,7 @@
       <file leaf-file-name="admin_base.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kingadmin/admin_base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
+            <state relative-caret-position="72">
               <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
@@ -281,7 +69,7 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kingadmin/templates/kingadmin/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
+            <state relative-caret-position="168">
               <caret line="7" column="104" selection-start-line="7" selection-start-column="104" selection-end-line="7" selection-end-column="104" />
               <folding />
             </state>
@@ -291,7 +79,7 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PerfectCRM/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
+            <state relative-caret-position="3288">
               <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
               <folding />
             </state>
@@ -301,7 +89,7 @@
       <file leaf-file-name="admin_tags.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kingadmin/templatetags/admin_tags.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
+            <state relative-caret-position="10776">
               <caret line="455" column="27" selection-start-line="455" selection-start-column="22" selection-end-line="455" selection-end-column="27" />
               <folding />
             </state>
@@ -311,7 +99,7 @@
       <file leaf-file-name="king_admin.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/kingadmin/king_admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
+            <state relative-caret-position="281">
               <caret line="132" column="44" selection-start-line="132" selection-start-column="44" selection-end-line="132" selection-end-column="44" />
               <folding>
                 <element signature="e#21#43#0" expanded="true" />
@@ -323,7 +111,7 @@
       <file leaf-file-name="app_index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kingadmin/templates/kingadmin/app_index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
+            <state relative-caret-position="312">
               <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
               <folding />
             </state>
@@ -333,7 +121,7 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kingadmin/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state relative-caret-position="192">
               <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
               <folding>
                 <element signature="e#21#53#0" expanded="true" />
@@ -345,7 +133,7 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kingadmin/templates/kingadmin/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-390">
+            <state relative-caret-position="1608">
               <caret line="67" column="35" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
               <folding />
             </state>
@@ -431,8 +219,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="69" />
-    <option name="y" value="220" />
+    <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="833" />
   </component>
@@ -461,7 +248,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -529,6 +315,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -891,27 +678,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="69" y="220" width="1440" height="833" extended-state="1" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="833" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24678111" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25035766" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43039772" sideWeight="0.50298506" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985073" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31888112" sideWeight="0.49701494" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.123032905" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26988637" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39970502" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31888112" sideWeight="0.49701494" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32867134" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39970502" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -942,7 +729,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -965,7 +751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -990,7 +775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -998,7 +782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1344">
           <caret line="59" column="23" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1006,7 +789,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1014,9 +796,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1062,9 +841,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2349">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#48#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1086,7 +862,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2502">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1094,7 +869,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1102,7 +876,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2013">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1110,7 +883,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1126,7 +898,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="99">
           <caret line="62" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="71" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1134,7 +905,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-336">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1142,7 +912,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1150,7 +919,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="20" column="35" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1158,11 +926,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="9" column="20" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="e#4389#5536#0" expanded="false" />
-            <element signature="e#6110#7647#0" expanded="false" />
-            <element signature="e#7691#7862#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1170,7 +933,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
           <caret line="14" column="86" selection-start-line="14" selection-start-column="68" selection-end-line="14" selection-end-column="86" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1178,7 +940,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="12" column="75" selection-start-line="12" selection-start-column="66" selection-end-line="12" selection-end-column="75" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1186,7 +947,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1194,7 +954,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="8" column="65" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1202,10 +961,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="329" column="82" selection-start-line="329" selection-start-column="82" selection-end-line="329" selection-end-column="82" />
-          <folding>
-            <marker date="1485231513000" expanded="false" signature="4465:4476" ph="..." />
-            <marker date="1485231513000" expanded="false" signature="11999:12010" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1213,7 +968,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1221,7 +975,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1427">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1229,7 +982,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1237,9 +989,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1368">
           <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
-          <folding>
-            <element signature="e#625#664#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1247,7 +996,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1255,7 +1003,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
           <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1263,15 +1010,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4581">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kingadmin/templates/kingadmin/app_index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
+        <state relative-caret-position="312">
           <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
           <folding />
         </state>
@@ -1279,7 +1023,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PerfectCRM/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
+        <state relative-caret-position="3288">
           <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
           <folding />
         </state>
@@ -1287,7 +1031,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kingadmin/templates/kingadmin/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-390">
+        <state relative-caret-position="1608">
           <caret line="67" column="35" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
           <folding />
         </state>
@@ -1295,7 +1039,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kingadmin/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
+        <state relative-caret-position="192">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
             <element signature="e#21#53#0" expanded="true" />
@@ -1305,7 +1049,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kingadmin/templatetags/admin_tags.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
+        <state relative-caret-position="10776">
           <caret line="455" column="27" selection-start-line="455" selection-start-column="22" selection-end-line="455" selection-end-column="27" />
           <folding />
         </state>
@@ -1315,7 +1059,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1337,7 +1080,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kingadmin/templates/kingadmin/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
+        <state relative-caret-position="168">
           <caret line="7" column="104" selection-start-line="7" selection-start-column="104" selection-end-line="7" selection-end-column="104" />
           <folding />
         </state>
@@ -1345,7 +1088,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kingadmin/admin_base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
+        <state relative-caret-position="72">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
@@ -1353,7 +1096,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kingadmin/king_admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
+        <state relative-caret-position="281">
           <caret line="132" column="44" selection-start-line="132" selection-start-column="44" selection-end-line="132" selection-end-column="44" />
           <folding>
             <element signature="e#21#43#0" expanded="true" />
