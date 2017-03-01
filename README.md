@@ -12,6 +12,18 @@
 >   注：此项目依然在活跃开发中，必然还有很多bug,但是做为课件来学习是非常不错的。
 
 
+
+
+
+##基本使用
+###requirements
+1. python3.5+
+2. django 1.10+
+
+### 使用
+1. python3 manage.py runserver 0.0.0.0:9000
+2. `username: alex@126.com`  `password: alex3714`
+
 ###使用中的bug可加此群汇报
 qq: python开发交流群 255012808 
 

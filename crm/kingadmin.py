@@ -8,8 +8,8 @@ from kingadmin.admin_base import BaseKingAdmin,site
 
 class CustomerAdmin(BaseKingAdmin):
     model = models.Customer
-    list_display = ['qq','qq_name','name','source','consultant','status','date','enroll']
-
+    list_display = ['qq','qq_name','name','phone','source','consultant','status','date','enroll']
+    list_editable = ['phone',"source"]
     fk_fields = ('consultant',)
     choice_fields = ('source','status')
     list_filter = ('source','consultant','status')
@@ -63,12 +63,11 @@ class CourseRecordAdmin(BaseKingAdmin):
     study_records.display_name = "学员学习记录"
 
 class StudyRecordAdmin(BaseKingAdmin):
-    model = models.StudyRecord
-    list_display = ('student','course_record','record','score','date','note')
+    list_display = ("id",'course_record',"id",'student','record','score','date','note')
     list_filter = ('student','course_record')
     choice_fields = ('record','score')
     fk_fields = ('student','course_record')
-
+    list_editable = ('id','student','record','score','note')
 
 
 
@@ -105,13 +104,13 @@ class UserCreationForm(forms.ModelForm):
 class UserProfileAdmin(BaseKingAdmin):
     add_form = UserCreationForm
     model =  models.UserProfile
-    list_display = ('id','email','is_staff')
+    list_display = ('id','email','is_staff','is_admin')
     readonly_fields = ['password',]
     change_page_onclick_fields = {
         'password':['password','重置密码']
     }
     filter_horizontal = ('user_permissions','roles')
-
+    list_editable = ['is_admin','is_superuser']
 
 class FirstLayerMenuAdmin(BaseKingAdmin):
     model = models.FirstLayerMenu
@@ -119,16 +118,12 @@ class FirstLayerMenuAdmin(BaseKingAdmin):
     choice_fields = ['url_type']
 
 class RoleAdmin(BaseKingAdmin):
-    model = models.Role
     list_display = ('name',)
     filter_horizontal = ('menus',)
 
 
 
-#for student
-from student import models as stu_models
-class StuAccountAdmin(BaseKingAdmin):
-    list_display = ('account','profile')
+
 
 site.register(models.Customer,CustomerAdmin)
 site.register(models.ClassList,ClasslistAdmin)
@@ -141,4 +136,3 @@ site.register(models.FirstLayerMenu,FirstLayerMenuAdmin)
 site.register(models.Role,RoleAdmin)
 
 
-site.register(stu_models.Account, StuAccountAdmin)

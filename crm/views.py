@@ -10,9 +10,8 @@ from PerfectCRM import settings
 from django.core.cache import cache
 
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
-from  crm.king_admin_old.king_admin import enabled_admins
-from crm.king_admin_old import forms as king_admin_forms
-from crm.king_admin_old import tables
+from  crm.kingadmin import site
+from kingadmin import forms as king_admin_forms
 import datetime,os,random,string
 from crm import verify_code
 
@@ -123,12 +122,12 @@ def enrollment(request,customer_id):
         if field_obj.editable:
             fields.append(field_obj.name)
 
-    print('fields:',fields)
+    #print('fields:',fields)
 
     customer_obj = models.Customer.objects.get(id=customer_id)
     model_form  = king_admin_forms.create_form(models.Enrollment,
                                  fields,
-                                 enabled_admins[models.Enrollment._meta.db_table])
+                                 site.enabled_admins[models.Enrollment._meta.db_table])
 
     form = model_form()
     response_msg = {}
@@ -143,7 +142,7 @@ def enrollment(request,customer_id):
 
             model_form = king_admin_forms.create_form(models.PaymentRecord,
                                                       fields,
-                                                      enabled_admins[models.PaymentRecord._meta.db_table])
+                                                      site.enabled_admins[models.PaymentRecord._meta.db_table])
 
             form = model_form(request.POST)
             if form.is_valid():
@@ -191,7 +190,7 @@ def enrollment(request,customer_id):
 
                         model_form = king_admin_forms.create_form(models.PaymentRecord,
                                                                   fields,
-                                                                  enabled_admins[models.PaymentRecord._meta.db_table])
+                                                                  site.enabled_admins[models.PaymentRecord._meta.db_table])
 
                         form = model_form()
 

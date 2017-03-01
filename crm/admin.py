@@ -65,6 +65,8 @@ class UserProfileAdmin(UserAdmin):
     # that reference specific fields on auth.User.
     list_display = ('id','email','is_admin','is_active')
     list_filter = ('is_admin',)
+    list_editable = ['is_admin']
+
     fieldsets = (
         (None, {'fields': ('email','name', 'password')}),
         ('Personal info', {'fields': ('memo',)}),
@@ -86,12 +88,12 @@ class UserProfileAdmin(UserAdmin):
 
 
 class CustomerAdmin(admin.ModelAdmin):
-    list_display = ('qq','name','source','course','class_type','consultant','status','date')
+    list_display = ('qq','name','source','phone','course','class_type','consultant','status','date')
     choice_fields = ('status','source','class_type')
     fk_fields = ('consultant','course')
     list_per_page = 10
     list_filter = ('name','source','course','status','date','class_type','consultant')
-
+    list_editable = ['phone',]
 
 class MenuAdmin(admin.ModelAdmin):
     list_display = ('name','url_type','url_name','order')
@@ -112,7 +114,8 @@ class PaymentRecordAdmin(admin.ModelAdmin):
     list_display = ('enrollment','pay_type','paid_fee','date','consultant')
 
 class StudyRecordAdmin(admin.ModelAdmin):
-    list_display = ('student','course_record','record','score','date')
+    list_display = ('id','student','course_record','record','score','date','note')
+    list_editable = ('student','score','record','note')
 
 admin.site.register(models.Customer,CustomerAdmin)
 admin.site.register(models.CustomerFollowUp)

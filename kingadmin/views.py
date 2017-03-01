@@ -1,22 +1,19 @@
+import datetime
+import re
+import json
+
+from django.contrib.auth import login,logout,authenticate
+from django.contrib.auth.decorators import login_required
+from django.core.cache import cache
+from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from django.shortcuts import render,HttpResponse,HttpResponseRedirect,Http404,redirect
 
-from django.core.exceptions import ObjectDoesNotExist
-from django.db import IntegrityError
-
-from django.contrib.auth.decorators import login_required
-
-from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
-from  kingadmin.king_admin import site
-from kingadmin import tables
+from kingadmin.admin_base import site
 from kingadmin import forms
+from kingadmin import tables
 from kingadmin.permissions import check_permission
-import re,os ,datetime,random,string
-from django.contrib.auth import login,logout,authenticate
-from django.core.cache import cache
-
-
 from kingadmin import settings
-
+from kingadmin import app_config
 
 
 @check_permission
@@ -84,11 +81,34 @@ def acc_logout(request):
     return HttpResponseRedirect("/kingadmin/login/")
 
 
+def batch_update(request,editable_data,admin_class):
+    """table objects batch update , for list_editable feature"""
+    for row_data in editable_data:
+        obj_id = row_data.get('id')
+        try:
+            if obj_id:
+                obj = admin_class.model.objects.get(id=obj_id)
+                for column in row_data:
+                    if column != "id":#id no need change
+                        #print("-----column",column,row_data[column],type(row_data[column]))
+                        if row_data[column] in ('True','False'):
+                            if obj._meta.get_field(column).get_internal_type() == "BooleanField":
+                                setattr(obj, column, eval(row_data[column]))
+                                #print("setting column [%s] to [%s]" %(column,row_data[column]), eval(row_data[column]))
+                            else:
+                                setattr(obj, column, row_data[column])
+                        else:
+                            setattr(obj,column,row_data[column])
 
+                obj.save()
 
+        except Exception as e:
+            return False,[e,obj]
+    return True, []
 @check_permission
 @login_required(login_url="/kingadmin/login/")
 def display_table_list(request,app_name,table_name):
+    errors = []
     if app_name in site.enabled_admins:
         ##print(enabled_admins[url])
         if table_name in site.enabled_admins[app_name]:
@@ -96,21 +116,32 @@ def display_table_list(request,app_name,table_name):
 
             if request.method == "POST":  # action 来了
 
-                ##print(request.POST)
-                selected_ids = request.POST.get("selected_ids")
-                action = request.POST.get("admin_action")
-                if selected_ids:
-                    selected_objs = admin_class.model.objects.filter(id__in=selected_ids.split(','))
-                else:
-                    raise KeyError("No object selected.")
-                if hasattr(admin_class, action):
-                    action_func = getattr(admin_class, action)
-                    request._admin_action = action
-                    return action_func(admin_class, request, selected_objs)
+                print(request.POST)
+
+                editable_data = request.POST.get("editable_data")
+                if editable_data: #for list editable
+                    editable_data = json.loads(editable_data)
+                    #print("editable",editable_data)
+                    res_state,error = batch_update(request,editable_data,admin_class)
+                    if res_state == False:
+                        errors.append(error)
+
+
+                else: #for action
+                    selected_ids = request.POST.get("selected_ids")
+                    action = request.POST.get("admin_action")
+                    if selected_ids:
+                        selected_objs = admin_class.model.objects.filter(id__in=selected_ids.split(','))
+                    else:
+                        raise KeyError("No object selected.")
+                    if hasattr(admin_class, action):
+                        action_func = getattr(admin_class, action)
+                        request._admin_action = action
+                        return action_func(admin_class, request, selected_objs)
 
 
 
-            if request.method == "POST2":
+            if request.method == "POST2":#drepcated
                 #print('post-->', request.POST)
 
                 delete_tag = request.POST.get("_delete_confirm")
@@ -159,7 +190,8 @@ def display_table_list(request,app_name,table_name):
                                                     {'table_obj':table_obj,
                                                      'app_name':app_name,
                                                      'active_url': '/kingadmin/',
-                                                     'paginator':paginator})
+                                                     'paginator':paginator,
+                                                     'errors':errors})
 
     else:
         raise Http404("url %s/%s not found" % (app_name,table_name) )
@@ -191,7 +223,7 @@ def table_change(request,app_name,table_name,obj_id):
                 form_obj = model_form(instance=obj)
 
             elif request.method == "POST":
-                #print("post:",request.POST)
+                print("post:",request.POST)
                 form_obj = model_form(request.POST,instance=obj)
                 if form_obj.is_valid():
                     form_obj.validate_unique()

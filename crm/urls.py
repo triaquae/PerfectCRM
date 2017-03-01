@@ -1,7 +1,6 @@
 
 from django.conf.urls import url,include
 from crm import  views
-from crm import kingadmin_views
 
 urlpatterns = [
     url(r'^$', views.sales_dashboard, name="crm_dashboard"), #销售角色首页

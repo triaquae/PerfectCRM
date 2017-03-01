@@ -7,6 +7,7 @@
 function CheckSelectedOptions() {
     $("select[data-type='m2m_chosen'] option").prop("selected",true);
     RemoveDisabledAttrs();
+    //return false;
 }
 
 

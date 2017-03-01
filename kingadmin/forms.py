@@ -42,7 +42,7 @@ def default_clean(self):
     '''form defautl clean method'''
     # print("\033[41;1mrun form defautl clean method...\033[0m",dir(self))
     # print(self.Meta.admin.readonly_fields)
-    # print("cleaned_dtat:",self.cleaned_data)
+    print("cleaned_dtat:",self.cleaned_data)
     # print("validataion errors:",self.errors)
     if self.Meta.admin.readonly_table is True:
         raise forms.ValidationError(("This is a readonly table!"))
@@ -79,5 +79,5 @@ def create_form(model,fields,admin_class,form_create=False,**kwargs):
     setattr(model_form,'__new__',__new__)
     if kwargs.get("request"): #for form validator
         setattr(model_form,'_request',kwargs.get("request"))
-    print(model_form)
+    #print(model_form)
     return model_form

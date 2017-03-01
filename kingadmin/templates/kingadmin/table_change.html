@@ -26,7 +26,7 @@
 {% block page-content %}
 
 
-{% include 'king_admin/filter_search_box.html' %}
+{% include 'kingadmin/filter_search_box.html' %}
 
 
 <div class="panel">
@@ -63,7 +63,7 @@
                                 <span style="color: red">{{ field.errors }}</span>
                             {% endif %}
                         {% else %}
-                            {% include 'king_admin/filter_horizontal_multi_select.html' %}
+                            {% include 'kingadmin/filter_horizontal_multi_select.html' %}
                         {% endif %}
                     </div>
                 </div>
@@ -85,5 +85,5 @@
     </form>
 
 </div>
-<script src="/static/js/king_admin/filter_horizontal.js"></script>
+<script src="/static/kingadmin/js/kingadmin/filter_horizontal.js"></script>
 {% endblock %}

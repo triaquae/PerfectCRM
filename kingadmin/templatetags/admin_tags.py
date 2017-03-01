@@ -78,56 +78,99 @@ def display_orderby_arrow(table_obj,loop_counter):
     return ''
 
 
+def render_list_editable_column(table_obj,row_obj, field_obj):
+    #print(table_obj,row_obj,field_obj,field_obj.name,field_obj.get_internal_type())
+    if field_obj.get_internal_type() in ("CharField","ForeignKey","BigIntegerField","IntegerField"):
+        column_data = field_obj._get_val_from_obj(row_obj)
+        if not field_obj.choices and field_obj.get_internal_type() != "ForeignKey" :
+
+            column = '''<input data-tag='editable' type='text' name='%s' value='%s' >''' %\
+                     (field_obj.name,
+                     field_obj._get_val_from_obj(row_obj) or '')
+
+        else:
+            if field_obj.get_internal_type() == "ForeignKey":
+                column = '''<select data-tag='editable' class='form-control'  name='%s_id' >'''%field_obj.name
+            else:
+                column = '''<select data-tag='editable' class='form-control'  name='%s' >'''%field_obj.name
+
+            for option in field_obj.get_choices():
+                if option[0] == column_data:
+                    selected_attr = "selected"
+                else:
+                    selected_attr = ''
+                column += '''<option value='%s' %s >%s</option>'''% (option[0],selected_attr,option[1])
+
+            column += "</select>"
+    elif field_obj.get_internal_type() == 'BooleanField':
+        column_data = field_obj._get_val_from_obj(row_obj)
+        if column_data == True:
+            checked = 'checked'
+        else:
+            checked = ''
+        column = '''<input data-tag='editable'   type='checkbox' name='%s' value="%s"  %s> ''' %(field_obj.name,
+                                                                                               column_data,
+                                                                                              checked)
+
+    else:
+        column = field_obj._get_val_from_obj(row_obj)
+
+    return column
+
 
 @register.simple_tag
 def build_table_row(row_obj,table_obj,onclick_column=None,target_link=None):
     row_ele = "<tr>"
-
+    #print("lsit editab",table_obj.list_editable)
     row_ele += "<td><input type='checkbox' tag='row-check' value='%s' > </td>" % row_obj.id
+    if table_obj.list_display:
+        for index,column_name in enumerate(table_obj.list_display):
 
-    for index,column_name in enumerate(table_obj.list_display):
+            if hasattr(row_obj,column_name):
+                field_obj = row_obj._meta.get_field(column_name)
+                column_data = field_obj._get_val_from_obj(row_obj)
+                if field_obj.choices:#choices type
+                    column_data = getattr(row_obj,"get_%s_display" % column_name)()
+                else:
+                    column_data = getattr(row_obj,column_name)
 
-        if hasattr(row_obj,column_name):
-            field_obj = row_obj._meta.get_field(column_name)
-            column_data = field_obj._get_val_from_obj(row_obj)
-            if field_obj.choices:#choices type
-                column_data = getattr(row_obj,"get_%s_display" % column_name)()
-            else:
-                column_data = getattr(row_obj,column_name)
+                if 'DateTimeField' in field_obj.__repr__():
+                    column_data = getattr(row_obj,column_name).strftime( "%Y-%m-%d %H:%M:%S") \
+                            if getattr(row_obj,column_name) else None
+                if 'ManyToManyField' in field_obj.__repr__():
+                    column_data = getattr(row_obj, column_name).select_related().count()
 
-            #if column_name in table_obj.fk_fields:
-            #    column_data = r"%s" %getattr(row_obj,column_name).__str__().strip("<>")
-            if 'DateTimeField' in field_obj.__repr__():
-                column_data = getattr(row_obj,column_name).strftime( "%Y-%m-%d %H:%M:%S") \
-                        if getattr(row_obj,column_name) else None
-            if 'ManyToManyField' in field_obj.__repr__():
-                column_data = getattr(row_obj, column_name).select_related().count()
-            if onclick_column == column_name:
-                column = ''' <td><a class='btn-link' href=%s>%s</a></td> '''% (url_reverse(target_link,args=(column_data, )),column_data)
-            #if column_name in table_obj.onclick_fields:
-            #    column = '''<td><a class='btn-link' href='%s' target='_blank'>%s</a></td>''' % \
-            #             (url_reverse(table_obj.onclick_fields[column_name],args=(row_obj.id, )), column_data)
+                if onclick_column == column_name:
+                    column = ''' <td><a class='btn-link' href=%s>%s</a></td> '''% (url_reverse(target_link,args=(column_data, )),column_data)
 
-            elif index == 0:#首列可点击进入更改页
-                column = '''<td><a class='btn-link'  href='%schange/%s/' >%s</a> </td> ''' %(table_obj.request.path,
-                                                                           row_obj.id,
-                                                                           column_data)
-            elif column_name in table_obj.colored_fields: #特定字段需要显示color
-                color_dic = table_obj.colored_fields[column_name]
-                if column_data in color_dic:
-                    column = "<td style='background-color:%s'>%s</td>" % (color_dic[column_data],
-                                                               column_data)
+                elif index == 0:#首列可点击进入更改页
+                    column = '''<td><a class='btn-link'  href='%schange/%s/' >%s</a> </td> ''' %(table_obj.request.path,
+                                                                               row_obj.id,
+                                                                               column_data)
+                elif column_name in table_obj.colored_fields: #特定字段需要显示color
+                    color_dic = table_obj.colored_fields[column_name]
+                    if column_data in color_dic:
+                        column = "<td style='background-color:%s'>%s</td>" % (color_dic[column_data],
+                                                                   column_data)
+                    else:
+                        column = "<td>%s</td>" % column_data
+
+                elif column_name in table_obj.list_editable:
+                    column = "<td>%s</td>" % render_list_editable_column(table_obj,row_obj,field_obj)
                 else:
                     column = "<td>%s</td>" % column_data
-            else:
-                column = "<td>%s</td>" % column_data
 
-        elif hasattr(table_obj.admin_class, column_name): #customized field
-            field_func = getattr(table_obj.admin_class, column_name)
-            table_obj.admin_class.instance = row_obj
-            column = "<td>%s</td>" % field_func(table_obj.admin_class)
+            elif hasattr(table_obj.admin_class, column_name): #customized field
+                field_func = getattr(table_obj.admin_class, column_name)
+                table_obj.admin_class.instance = row_obj
+                column = "<td>%s</td>" % field_func(table_obj.admin_class)
 
-        row_ele += column
+            row_ele += column
+    else:
+        row_ele += "<td><a class='btn-link'  href='{request_path}change/{obj_id}/' >{column}</a></td>". \
+            format(request_path=table_obj.request.path, column=row_obj, obj_id=row_obj.id)
+
+
     #for dynamic display
     if table_obj.dynamic_fk :
         if hasattr(row_obj,table_obj.dynamic_fk ):
