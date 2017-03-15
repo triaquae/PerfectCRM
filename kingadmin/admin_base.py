@@ -46,6 +46,9 @@ class BaseKingAdmin(object):
 
 
 
+class AdminAlreadyRegistered(Exception):
+    def __init__(self,msg):
+        self.message = msg
 
 
 class AdminSite(object):
@@ -59,6 +62,9 @@ class AdminSite(object):
     def register(self,model_class,admin_class=None):
         if model_class._meta.app_label not in self.enabled_admins:
             self.enabled_admins[model_class._meta.app_label] = {} #enabled_admins['crm'] = {}
+        # else:
+        #     print(self.enabled_admins)
+        #     raise AdminAlreadyRegistered("model %s has registered already"% model_class._meta.model_name)
         #admin_obj = admin_class()
         if not admin_class:#no custom admin class , use BaseAdmin
             admin_class = BaseKingAdmin
@@ -67,7 +73,6 @@ class AdminSite(object):
 
         self.enabled_admins[model_class._meta.app_label][model_class._meta.model_name] = admin_class
         #enabled_admins['app']['tablename'] = tableadmin
-
 
 
 site = AdminSite()

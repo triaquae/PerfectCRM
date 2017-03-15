@@ -55,7 +55,9 @@
 
                     <div class="col-md-9">
                         {% if field.name not in admin_class.filter_horizontal %}
-                            {{ field }} {% add_fk_search_btn form_obj field %}
+                            {{ field }}
+                            {% add_fk_search_btn form_obj field %}
+                            {% add_new_obj_btn form_obj field %}
                             <span style="color: lightgray">{{ field.help_text }}</span>
 {#                            {% add_onclick_link form_obj field %}#}
 {#                            {% decorate_date_field form_obj field %}#}
@@ -63,7 +65,9 @@
                                 <span style="color: red">{{ field.errors }}</span>
                             {% endif %}
                         {% else %}
+
                             {% include 'kingadmin/filter_horizontal_multi_select.html' %}
+
                         {% endif %}
                     </div>
                 </div>

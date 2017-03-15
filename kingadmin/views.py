@@ -105,6 +105,7 @@ def batch_update(request,editable_data,admin_class):
         except Exception as e:
             return False,[e,obj]
     return True, []
+
 @check_permission
 @login_required(login_url="/kingadmin/login/")
 def display_table_list(request,app_name,table_name):
@@ -306,8 +307,9 @@ def table_add(request,app_name,table_name):
                             form_obj = model_form()
 
                         else: #return to table list page
-                            redirect_url = request.path.rstrip("/add/")
-                            return redirect(redirect_url)
+                            if "_popup=1"  not in request.get_full_path():
+                                redirect_url = request.path.rstrip("/add/")
+                                return redirect(redirect_url)
 
             return render(request, 'kingadmin/table_add.html',
                           {'form_obj': form_obj,

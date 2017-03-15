@@ -35,13 +35,15 @@ class EnrollmentAdmin(BaseKingAdmin):
     list_display = ['customer','school','course_grade','contract_agreed','contract_approved','enrolled_date']
     fk_fields = ('school','course_grade')
 
+
 class ClasslistAdmin(BaseKingAdmin):
-    model = models.ClassList
     list_display = ('branch','course','semester','start_date')
     fk_fields = ('branch','course')
     filter_horizontal = ('teachers',)
     default_actions = ['delete_selected','dd秀d']
-    readonly_table = True
+    #readonly_table = True
+    readonly_fields = ['price','semester']
+
 
 class PaymentRecordAdmin(BaseKingAdmin):
     model = models.PaymentRecord
@@ -134,5 +136,5 @@ site.register(models.StudyRecord,StudyRecordAdmin)
 site.register(models.UserProfile,UserProfileAdmin)
 site.register(models.FirstLayerMenu,FirstLayerMenuAdmin)
 site.register(models.Role,RoleAdmin)
-
+site.register(models.Course)
 

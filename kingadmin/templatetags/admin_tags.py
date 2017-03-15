@@ -374,6 +374,47 @@ def get_chosen_m2m_objs(form_field_obj, model_obj):
 
 
 @register.simple_tag
+def add_new_obj_btn(form_obj ,field):
+    """put a add btn for foreignkey and m2m field"""
+
+    field_obj = form_obj.instance._meta.get_field(field.name)
+    field_type = field_obj.get_internal_type()
+    if field_type in ("ForeignKey","ManyToManyField"):
+        if field.name not in form_obj.Meta.admin.readonly_fields:
+            popup_window = "window.open('/kingadmin/{app}/{model}/add/?_popup=1','','width=800,height=700')".format(
+                app=field_obj.rel.to()._meta.app_label,
+                model=field_obj.rel.to()._meta.model_name,
+
+            )
+            print("pop up win",popup_window)
+            ele = '''
+                    &nbsp;&nbsp;&nbsp;<i style="cursor: pointer;color:#44ce44"
+                    class="fa fa-plus" aria-hidden="true"
+                    onclick="%s"></i>''' % (popup_window)
+            return mark_safe(ele)
+
+    return ''
+
+
+@register.simple_tag
+def  check_pop_up_window (request,form_obj):
+    """check if needs to close this window"""
+    #print("check_pop_up_window:",request.get_full_path(),[form_obj.errors])
+    if "_popup=1" in request.get_full_path():
+        if request.method == "POST":
+            if not form_obj.errors:
+                ele = '''
+                <script type='text/javascript'>
+                    window.close();
+                </script>
+                '''
+                return mark_safe(ele)
+
+        return ''
+    else:
+        return ''
+
+@register.simple_tag
 def add_fk_search_btn(form_obj,field):
     ##print("add_fk_search_btn",field)
     ##print("add_fk_search_btn",dir(field))
