@@ -9,7 +9,7 @@ from kingadmin.admin_base import BaseKingAdmin,site
 class CustomerAdmin(BaseKingAdmin):
     model = models.Customer
     list_display = ['qq','qq_name','name','phone','source','consultant','status','date','enroll']
-    list_editable = ['phone',"source"]
+    list_editable = ['phone',"source","consultant",'status']
     fk_fields = ('consultant',)
     choice_fields = ('source','status')
     list_filter = ('source','consultant','status')
@@ -124,7 +124,8 @@ class RoleAdmin(BaseKingAdmin):
     filter_horizontal = ('menus',)
 
 
-
+class CourseAdmin(BaseKingAdmin):
+    list_display = ('id','name','period')
 
 
 site.register(models.Customer,CustomerAdmin)
@@ -136,5 +137,6 @@ site.register(models.StudyRecord,StudyRecordAdmin)
 site.register(models.UserProfile,UserProfileAdmin)
 site.register(models.FirstLayerMenu,FirstLayerMenuAdmin)
 site.register(models.Role,RoleAdmin)
-site.register(models.Course)
+site.register(models.Course,CourseAdmin)
+site.register(models.Branch)
 

@@ -711,7 +711,7 @@
                                             </li>
                                         {% else %}
                                             <li class="">
-                                                <a href="{% url m.url_name %}">
+                                                <a href="{% if m.url_type == 0 %}{% url m.url_name %}{% else %}{{ m.url_name }}{% endif %}">
                                                     <i class="fa fa-th"></i>
                                                     <span class="menu-title">{{ m.name }}</span>
                                                     <i class="arrow"></i>

@@ -21,6 +21,7 @@ from PerfectCRM import views as main_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^crm/', include("crm.urls")),
+    url(r'^beeflow/', include("beeflow.urls")),
     url(r'^$', main_views.PortalView.as_view()),
     #url(r'^kingadmin/', include("crm.kingadmin_urls")),
     url(r'^kingadmin/', include("kingadmin.urls")),

@@ -117,11 +117,15 @@ class StudyRecordAdmin(admin.ModelAdmin):
     list_display = ('id','student','course_record','record','score','date','note')
     list_editable = ('student','score','record','note')
 
+
+class CourseAdmin(admin.ModelAdmin):
+    list_display = ('id','name','period')
+
 admin.site.register(models.Customer,CustomerAdmin)
 admin.site.register(models.CustomerFollowUp)
 admin.site.register(models.Branch)
 admin.site.register(models.ClassList)
-admin.site.register(models.Course)
+admin.site.register(models.Course,CourseAdmin)
 admin.site.register(models.Role,RoleAdmin)
 admin.site.register(models.UserProfile,UserProfileAdmin)
 admin.site.register(models.Enrollment,EnrollmentAdmin)

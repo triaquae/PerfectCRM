@@ -122,12 +122,12 @@ def enrollment(request,customer_id):
         if field_obj.editable:
             fields.append(field_obj.name)
 
-    #print('fields:',fields)
+    print('site.enabled_admins:',site.enabled_admins)
 
     customer_obj = models.Customer.objects.get(id=customer_id)
     model_form  = king_admin_forms.create_form(models.Enrollment,
                                  fields,
-                                 site.enabled_admins[models.Enrollment._meta.db_table])
+                                 site.enabled_admins[models.Enrollment._meta.app_label][models.Enrollment._meta.model_name])
 
     form = model_form()
     response_msg = {}

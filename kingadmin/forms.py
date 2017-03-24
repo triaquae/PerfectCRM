@@ -51,9 +51,14 @@ def default_clean(self):
     if self.instance.id is not None :#means this is a change form ,should check the readonly fields
         for field in self.Meta.admin.readonly_fields:
             old_field_val = getattr(self.instance,field)
-            form_val = self.cleaned_data[field]
+            form_val = self.cleaned_data.get(field)
             print("filed differ compare:",old_field_val,form_val)
             if old_field_val != form_val:
+                if self.Meta.partial_update: #for list_editable feature
+                    if field not in  self.cleaned_data:
+                        #因为list_editable成生form时只生成了指定的几个字段，所以如果readonly_field里的字段不在，list_ediatble数据里，那也不检查了
+                        continue #
+
                 self.add_error(field,"Readonly Field: field should be '{value}' ,not '{new_value}' ".\
                                      format(**{'value':old_field_val,'new_value':form_val}))
 
@@ -70,6 +75,7 @@ def create_form(model,fields,admin_class,form_create=False,**kwargs):
     setattr(Meta,'fields',fields)
     setattr(Meta,'admin',admin_class)
     setattr(Meta,'form_create',form_create)
+    setattr(Meta,'partial_update',kwargs.get("partial_update"))  #for list_editable feature, only do partial check
 
     attrs = {'Meta':Meta}
 

@@ -30,8 +30,14 @@
             {% if errors %}
             <div >
                 <h3 style="color: red;">Below errors happened during updating data!</h3>
-                {% for err in errors %}
-                    <p style="color: red">{{ err }}</p>
+                {% for form_errs in errors %}
+
+                    <ul>
+                        <li style="color: red;font-weight: bold">{{ form_errs.1 }}</li>
+                        {% for k,err in form_errs.0.items %}
+                            <li>{{ k }},{{ err }}</li>
+                        {% endfor %}
+                    </ul>
                 {% endfor %}
             </div>
             {% endif %}

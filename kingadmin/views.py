@@ -83,27 +83,43 @@ def acc_logout(request):
 
 def batch_update(request,editable_data,admin_class):
     """table objects batch update , for list_editable feature"""
+    errors = []
     for row_data in editable_data:
         obj_id = row_data.get('id')
         try:
             if obj_id:
+                print("editable data",row_data,list(row_data.keys()))
                 obj = admin_class.model.objects.get(id=obj_id)
-                for column in row_data:
-                    if column != "id":#id no need change
-                        #print("-----column",column,row_data[column],type(row_data[column]))
-                        if row_data[column] in ('True','False'):
-                            if obj._meta.get_field(column).get_internal_type() == "BooleanField":
-                                setattr(obj, column, eval(row_data[column]))
-                                #print("setting column [%s] to [%s]" %(column,row_data[column]), eval(row_data[column]))
-                            else:
-                                setattr(obj, column, row_data[column])
-                        else:
-                            setattr(obj,column,row_data[column])
+                model_form = forms.create_form(admin_class.model, list(row_data.keys()),
+                                               admin_class, request=request,partial_update=True)
+                form_obj = model_form(instance=obj,data=row_data)
+                if form_obj.is_valid():
+                   form_obj.save()
 
-                obj.save()
+                else:
+                    print("list editable form", row_data, form_obj.errors)
 
-        except Exception as e:
+                    errors.append([form_obj.errors, obj])
+
+                # for column in row_data:
+                #     if column != "id":#id no need change
+                #         #print("-----column",column,row_data[column],type(row_data[column]))
+                #         if row_data[column] in ('True','False'):
+                #             if obj._meta.get_field(column).get_internal_type() == "BooleanField":
+                #                 setattr(obj, column, eval(row_data[column]))
+                #                 #print("setting column [%s] to [%s]" %(column,row_data[column]), eval(row_data[column]))
+                #             else:
+                #                 setattr(obj, column, row_data[column])
+                #         else:
+                #             setattr(obj,column,row_data[column])
+                #
+                # obj.save()
+
+        #except Exception as e:
+        except KeyboardInterrupt as e:
             return False,[e,obj]
+    if errors:
+        return False ,errors
     return True, []
 
 @check_permission
@@ -123,9 +139,9 @@ def display_table_list(request,app_name,table_name):
                 if editable_data: #for list editable
                     editable_data = json.loads(editable_data)
                     #print("editable",editable_data)
-                    res_state,error = batch_update(request,editable_data,admin_class)
-                    if res_state == False:
-                        errors.append(error)
+                    res_state,errors = batch_update(request,editable_data,admin_class)
+                    #if res_state == False:
+                    #    #errors.append(error)
 
 
                 else: #for action
@@ -296,6 +312,7 @@ def table_add(request,app_name,table_name):
                 if form_obj.is_valid():
                     form_obj.validate_unique()
                     if form_obj.is_valid():
+                        print("add form valid",form_obj.cleaned_data)
                         form_obj.save()
                         if request.POST.get('_continue') is not None:
 

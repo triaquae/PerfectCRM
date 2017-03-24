@@ -173,6 +173,7 @@ class Course(models.Model):
     def __str__(self):
         return self.name
 
+
 class CourseRecord(models.Model):
     '''存储各班级的上课记录'''
 
@@ -192,6 +193,7 @@ class CourseRecord(models.Model):
         verbose_name = u'上课纪录'
         verbose_name_plural = u"上课纪录"
         unique_together = ('course', 'day_num')
+
 
 class StudyRecord(models.Model):
     '''存储所有学员的详细的学习成绩情况'''
