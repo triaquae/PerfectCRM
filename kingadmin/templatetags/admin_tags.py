@@ -4,8 +4,6 @@ import datetime
 import re
 from django import template
 from kingadmin.admin_base import  site
-
-
 from django.utils.safestring import mark_safe,mark_for_escaping
 from  django.core.urlresolvers import reverse as url_reverse
 
@@ -363,6 +361,8 @@ def get_time_humanize_display(time_seconds):
 @register.simple_tag
 def get_chosen_m2m_objs(form_field_obj, model_obj):
     '''return chosen m2m objs'''
+    #print("367 model obj", model_obj)
+
     selected_pks = form_field_obj.value()
     try :
         m2m_objs = getattr(model_obj,form_field_obj.name)
@@ -370,7 +370,7 @@ def get_chosen_m2m_objs(form_field_obj, model_obj):
         ##print("get_chosen_m2m_objs", form_field_obj.value(), selected_objs)
         ##print(selected_objs.values())
         return selected_objs
-    except ValueError as e :
+    except Exception as e:
         return []
 
 
@@ -587,5 +587,16 @@ def display_obj_related(objs):
         #mode_name = objs[0]._meta.model_name
         return mark_safe(recursive_related_objs_lookup(objs))
 
+@register.simple_tag
+def get_form_global_error(obj):
 
-
+    form_err = obj.as_data().get('__all__')
+    if form_err:
+        return form_err
+    else:
+        return ''
+@register.simple_tag
+def printf(obj):
+    print("printf debug:",obj)
+    print("printf debug dir :",dir(obj))
+    print("printf debug dir :",obj.as_data())

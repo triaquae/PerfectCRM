@@ -37,7 +37,10 @@
 {#    <form method="post" class=" form-horizontal form-padding">{% csrf_token %}#}
         <div class="panel-body">
             {% if form_obj.errors%}
-                <span style="color: red">{{ form_obj.errors }}</span>
+                <div class="alert alert-danger media fade in">
+                    <strong>表单错误!</strong> {% get_form_global_error form_obj.errors %}
+                </div>
+{#                {% printf form_obj.errors %}#}
             {% endif %}
             {% for field in form_obj %}
                 <div class="form-group">
@@ -62,6 +65,9 @@
                             {% endif %}
                         {% else %}
                             {% include 'kingadmin/filter_horizontal_multi_select.html' %}
+                            {% if field.errors %}
+                                <span style="color: red">{{ field.errors }}</span>
+                            {% endif %}
                         {% endif %}
                     </div>
                 </div>
