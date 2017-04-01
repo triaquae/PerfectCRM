@@ -174,6 +174,11 @@ class Course(models.Model):
         return self.name
 
 
+    class Meta:
+        verbose_name = '课程'
+        verbose_name_plural = "课程"
+
+
 class CourseRecord(models.Model):
     '''存储各班级的上课记录'''
 
@@ -190,8 +195,8 @@ class CourseRecord(models.Model):
         return "%s 第%s天" % (self.course, self.day_num)
 
     class Meta:
-        verbose_name = u'上课纪录'
-        verbose_name_plural = u"上课纪录"
+        verbose_name = '上课纪录'
+        verbose_name_plural = "上课纪录"
         unique_together = ('course', 'day_num')
 
 
@@ -304,6 +309,7 @@ class UserProfile(auth.AbstractBaseUser, auth.PermissionsMixin):
             ('crm_table_list_view', '可以访问 kingadmin 每个表中对象的修改页'),
             ('crm_table_list_change', '可以修改 kingadmin 每个表中对象'),
             ('crm_table_list_action', '可以操作 每个表的 action 功能'),
+            ('crm_can_access_my_clients', '可以访问 自己的 客户列表'),
 
         )
 
@@ -328,12 +334,21 @@ class Role(models.Model):
     def __str__(self):
         return self.name
 
+
+    class Meta:
+        verbose_name = "角色"
+        verbose_name_plural = "角色"
+
 class Branch(models.Model):
     '''存储所有校区'''
     name = models.CharField(max_length=64,unique=True)
     def __str__(self):
         return self.name
 
+
+    class Meta:
+        verbose_name = "校区"
+        verbose_name_plural = "校区"
 
 class FirstLayerMenu(models.Model):
     '''第一层侧边栏菜单'''
@@ -347,6 +362,9 @@ class FirstLayerMenu(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = "第一层菜单"
+        verbose_name_plural = "第一层菜单"
 
 
 class SubMenu(models.Model):
@@ -361,6 +379,10 @@ class SubMenu(models.Model):
     def __str__(self):
         return self.name
 
+
+    class Meta:
+        verbose_name = "第二层菜单"
+        verbose_name_plural = "第二层菜单"
 
 
 class PaymentRecord(models.Model):
