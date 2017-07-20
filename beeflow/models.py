@@ -24,6 +24,8 @@ class Flow(models.Model):
     template = models.ForeignKey(FlowTemplate)
     started_user = models.ForeignKey(crm_models.UserProfile,verbose_name="流程发起人")
     content = models.TextField(blank=True,null=True,verbose_name="申请内容")
+    in_queue = models.BooleanField(default=True,help_text="只要任务没被人处理，就会一直在queue中")
+
     date = models.DateTimeField(auto_created=True,auto_now=True)
     def __str__(self):
         return "%s 发起人:%s" %(self.template,self.started_user)
@@ -68,7 +70,7 @@ class Step(models.Model):
     name = models.CharField("环节名称",max_length=128)
     description = models.TextField("环节介绍",blank=True,null=True)
     order = models.PositiveSmallIntegerField("环节步骤")
-    role = models.ManyToManyField("FlowRole",verbose_name="审批角色")
+    role = models.ForeignKey("FlowRole",verbose_name="审批角色")
     is_countersign =  models.BooleanField("会签环节",default=False)
     required_polls = models.PositiveSmallIntegerField("会签最少需同意的人数",blank=True,null=True)
 
@@ -83,8 +85,8 @@ class FlowRecord(models.Model):
     """流程的流转记录"""
     flow = models.ForeignKey("Flow",default=1)
     step = models.ForeignKey("Step")
-    user = models.ForeignKey(crm_models.UserProfile)
-    status_choices = ((0,'同意'),(1,'拒绝'),(2,'需额外审批人审批'))
+    user = models.ForeignKey(crm_models.UserProfile,verbose_name="审批用户",blank=True,null=True)
+    status_choices = ((0,'同意'),(1,'拒绝'),(2,'需额外审批人审批'),(3,'待处理'))
     status = models.SmallIntegerField(choices=status_choices,verbose_name="审批状态")
     comment = models.TextField(max_length=1024, verbose_name="审批意见")
     extra_parties = models.ManyToManyField(crm_models.UserProfile,verbose_name="额外审批人列表",
@@ -100,7 +102,9 @@ class FlowRecord(models.Model):
 class FlowRole(models.Model):
     """流程角色"""
     name = models.CharField(max_length=64,unique=True)
-    users = models.ManyToManyField(crm_models.UserProfile)
+    users = models.ManyToManyField(crm_models.UserProfile,blank=True)
+    is_dynamic_role = models.BooleanField(default=False)
+    role_lookup_func = models.CharField("查找动态role的函数",max_length=64,blank=True,null=True)
 
     def __str__(self):
         return self.name

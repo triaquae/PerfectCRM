@@ -67,5 +67,5 @@ def gene_code(save_path,filename):
     return text
 
 if __name__ == "__main__":
-    gene_code('crm','test')
+    gene_code('/tmp','test') #会把生成的图片存成/tmp/test.png
 

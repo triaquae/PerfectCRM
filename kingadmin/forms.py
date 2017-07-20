@@ -1,6 +1,13 @@
 #_*_coding:utf-8_*_
 from django.forms import ModelForm
 from django import forms
+
+
+class FormTest(forms.Form):
+    name = forms.CharField(max_length=32)
+    age = forms.IntegerField()
+
+
 def __new__(cls, *args, **kwargs):
     # super(CustomerForm, self).__new__(*args, **kwargs)
     # self.fields['customer_note'].widget.attrs['class'] = 'form-control'

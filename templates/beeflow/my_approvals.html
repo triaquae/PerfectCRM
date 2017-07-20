@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+{% load beeflow_tags %}
+
+{% block page-title-text %}
+  需要我审批的流程
+{% endblock %}
+
+{% block page-content %}
+
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ flow_obj }}</h3>
+        </div>
+
+        <!-- Striped Table -->
+        <!--===================================================-->
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>流程</th>
+                            <th>发起时间</th>
+                            <th>申请人</th>
+                            <th>申请内容</th>
+                            <th>上一环节审批人</th>
+                            <th>上一环节审批意见</th>
+                            <th>上一环节审批结果</th>
+                            <th>上一环节审批时间</th>
+                            <th>当前状态</th>
+                            <th>审批</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if queued_flows %}
+                            {% for flow_record in queued_flows  %}
+                                {% get_last_step_obj flow_record as last_step_record_obj %}
+
+                                <tr>
+                                    <td>{{ flow_record.flow }}</td>
+                                    <td>{{ flow_record.flow.date }}</td>
+                                    <td>{{ flow_record.flow.started_user }}</td>
+                                    <td >{{ flow_record.flow.content }}</td>
+                                    <td class="btn-info">{{ last_step_record_obj.user }}</td>
+                                    <td class="btn-info">{{ last_step_record_obj.comment }}</td>
+                                    <td class="btn-info">{{ last_step_record_obj.get_status_display }}</td>
+                                    <td class="btn-info">{{ last_step_record_obj.date }}</td>
+
+                                    <td>{{ flow_record.get_status_display }}</td>
+
+                                    <td><a href="{% url 'flow_examination' flow_record.id %}"><i style="cursor: pointer;color: #1c94c4" class="fa fa-pencil-square-o " aria-hidden="true"></i></a></td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr><td style="text-align: center" colspan="10"><span style="font-size: 20px">当前无需要审批的流程!</span></td></tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

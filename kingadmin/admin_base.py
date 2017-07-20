@@ -54,7 +54,6 @@ class AdminAlreadyRegistered(Exception):
 class AdminSite(object):
     def __init__(self, name='admin'):
         self.enabled_admins = {}  # model_class class -> admin_class instance
-        self.name = name
         #self.default_actions = {'delete_selected': actions.delete_selected}
         #self._global_actions = self._actions.copy()
 
@@ -67,7 +66,7 @@ class AdminSite(object):
         #     raise AdminAlreadyRegistered("model %s has registered already"% model_class._meta.model_name)
         #admin_obj = admin_class()
         if not admin_class:#no custom admin class , use BaseAdmin
-            admin_class = BaseKingAdmin
+            admin_class = BaseKingAdmin()
         admin_class.model = model_class #绑定model 对象和admin 类
 
 

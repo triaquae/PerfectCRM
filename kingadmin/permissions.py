@@ -68,6 +68,8 @@ def perm_check(*args,**kwargs):
                     else:
                         perm_func_matched = False #使整条权限失效
 
+                else: #没有定义权限钩子，所以默认通过
+                    perm_func_matched = True
 
                 match_results = [args_matched,kwargs_matched,perm_func_matched]
                 print("--->match_results ", match_results)

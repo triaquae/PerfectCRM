@@ -19,7 +19,6 @@ from kingadmin import app_config
 @check_permission
 @login_required(login_url="/kingadmin/login/")
 def app_index(request):
-
     return render(request,'kingadmin/app_index.html', {'enabled_admins':site.enabled_admins})
 
 @login_required
@@ -125,6 +124,7 @@ def batch_update(request,editable_data,admin_class):
 @check_permission
 @login_required(login_url="/kingadmin/login/")
 def display_table_list(request,app_name,table_name):
+
     errors = []
     if app_name in site.enabled_admins:
         ##print(enabled_admins[url])
@@ -157,30 +157,6 @@ def display_table_list(request,app_name,table_name):
                         return action_func(admin_class, request, selected_objs)
 
 
-
-            if request.method == "POST2":#drepcated
-                #print('post-->', request.POST)
-
-                delete_tag = request.POST.get("_delete_confirm")
-                if delete_tag == "yes":
-                    del_ids = request.POST.getlist("deleted_objs")
-
-                    admin_class.model.objects.filter(id__in=del_ids).delete()
-
-                else:
-
-                    admin_action = request.POST.get('admin_action')
-                    selected_raw_ids = request.POST.get('selected_ids','')
-                    selected_ids = selected_raw_ids.split(',')
-                    selected_objs = admin_class.model.objects.filter(id__in=selected_ids)
-
-                    if hasattr(admin_class, admin_action):
-                        admin_action_func = getattr(admin_class, admin_action)
-                        return admin_action_func(admin_class,request,selected_objs)
-                    else:
-                        raise NotImplementedError("admin_action %s cannot find" % admin_action)
-
-
             querysets = tables.table_filter(request, admin_class,admin_class.model)
             searched_querysets = tables.search_by(request,querysets,admin_class)
             order_res = tables.get_orderby(request, searched_querysets, admin_class)
@@ -208,7 +184,9 @@ def display_table_list(request,app_name,table_name):
                                                      'app_name':app_name,
                                                      'active_url': '/kingadmin/',
                                                      'paginator':paginator,
-                                                     'errors':errors})
+                                                     'errors':errors,
+                                        'enabled_admins':site.enabled_admins}
+                          )
 
     else:
         raise Http404("url %s/%s not found" % (app_name,table_name) )
@@ -253,7 +231,8 @@ def table_change(request,app_name,table_name,obj_id):
                            'model_verbose_name':admin_class.model._meta.verbose_name,
                            'model_name':admin_class.model._meta.model_name,
                            'app_name':app_name,
-                           'admin_class':admin_class
+                           'admin_class':admin_class,
+                           'enabled_admins': site.enabled_admins
 
                             })
     else:
@@ -336,6 +315,7 @@ def table_add(request,app_name,table_name):
                            'admin_class': admin_class,
                            'app_name': app_name,
                            'active_url': '/kingadmin/',
+                           'enabled_admins': site.enabled_admins
                            })
 
     else:
@@ -347,7 +327,6 @@ def table_add(request,app_name,table_name):
 def personal_password_reset(request):
     app_name = request.user._meta.app_label
     model_name  = request.user._meta.model_name
-
 
     if request.method == "GET":
         change_form = site.enabled_admins[app_name][model_name].add_form(instance=request.user)
