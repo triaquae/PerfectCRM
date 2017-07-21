@@ -304,6 +304,7 @@ class UserProfile(auth.AbstractBaseUser, auth.PermissionsMixin):
         verbose_name_plural = 'CRM账户'
 
         permissions = (
+            ('crm_customers', '可以访问 客户库'),
             ('crm_table_list', '可以访问 kingadmin 每个表的数据列表页'),
             ('crm_table_index', '可以访问 kingadmin 首页'),
             ('crm_table_list_view', '可以访问 kingadmin 每个表中对象的修改页'),

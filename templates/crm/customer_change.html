@@ -1,18 +1,18 @@
 {% extends 'index.html' %}
 {% load custom_tags %}
 
-
 {% block breadcrumb %}
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <ol class="breadcrumb">
     <li><a href="#">Home</a></li>
-    <li class="active"><a href="{% url 'customers' %}">客户库</a></li>
+    <li><a href="{% url 'customers' %}">客户库</a></li>
+    <li class="active">客户详情页</li>
 </ol>
 {% endblock %}
 
-{% block page-title-text %}
-  客户信息库
 
+{% block page-title-text %}
+  客户信息修改
 {% endblock %}
 
 {% block page-content %}
@@ -20,15 +20,17 @@
         <div class="col-md-12 ">
             <!--Basic Panel-->
             <!--===================================================-->
-            {% include "kingadmin/components/object_list_table.html" %}
+
+            {% include 'kingadmin/filter_search_box.html' %}
+
+            {% include 'kingadmin/components/object_change.html' %}
 
             <!--===================================================-->
             <!--End Basic Panel-->
         </div>
     </div>
 
+    <script src="/static/kingadmin/js/kingadmin/king_admin.js" > </script>
+
 {% endblock %}
 
-{% block bottom-js %}
-    {% include 'kingadmin/components/object_list_table_editable_js.html' %}
-{% endblock %}
