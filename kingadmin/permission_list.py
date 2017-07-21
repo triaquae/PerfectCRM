@@ -5,6 +5,7 @@ from kingadmin import custom_perm_logic
 perm_dic={
 
     'crm_table_index':['table_index','GET',[],{},],
+    'crm_customers':['customers','GET',[],{},],
     'crm_table_list':['table_list','GET',[],{}],
     #'crm_table_list_action':['table_list','POST',["admin_action",]],
     'crm_table_list_action':['table_list','POST',[],{}],

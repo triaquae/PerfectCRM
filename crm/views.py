@@ -12,6 +12,7 @@ from django.core.cache import cache
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from  crm.kingadmin import site
 from kingadmin import forms as king_admin_forms
+from kingadmin import views as kingadmin_views
 import datetime,os,random,string
 from crm import verify_code
 
@@ -19,35 +20,32 @@ from crm import verify_code
 
 @login_required
 def sales_dashboard(request):
+
+
     return render(request,'crm/dashboard.html')
 
 @login_required
 def customers(request):
     '''sales role home page'''
     print(request.GET)
-    customer_list = models.Customer.objects.all()
 
-    order_res = forms.get_orderby(request,customer_list,admin.CustomerAdmin)
-    #print('----->',order_res)
-    paginator = Paginator(order_res[0],admin.CustomerAdmin.list_per_page)
+    #return kingadmin_views.display_table_list(request,'crm','customer')
+    template_data =  kingadmin_views.display_table_list(request,'crm','customer',embed=True)
+    if type(template_data) is dict:
+        #print("template data",template_data,type(template_data))
+        return render(request,'crm/customers.html',template_data)
+    else: #调用的视图可能出错了，返回了一个错误页面，这里不做处理，也直接返回
+        return template_data
 
-    page = request.GET.get('page')
-    try:
-        customer_objs = paginator.page(page)
-    except PageNotAnInteger:
-        customer_objs = paginator.page(1)
-    except EmptyPage:
-        customer_objs = paginator.page(paginator.num_pages)
+@login_required
+def customer_change(request,customer_id):
+    """customer change page"""
+    template_data =  kingadmin_views.table_change(request,'crm','customer',customer_id,embed=True)
+    if type(template_data) is dict:
+        return render(request,'crm/customer_change.html',template_data)
+    else:
+        return template_data
 
-
-    table_obj = forms.TableHandler(request,
-                                   models.Customer,
-                                   customer_objs,
-                                   admin.CustomerAdmin,
-                                   order_res)
-    #print("list_filter",table_obj.list_filter)
-    return render(request, "crm/customers.html", {"customer_table":table_obj,
-                                                'paginator': paginator})
 @login_required
 def my_customers(request):
     '''每个销售自己的客户列表'''

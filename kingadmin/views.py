@@ -123,7 +123,15 @@ def batch_update(request,editable_data,admin_class):
 
 @check_permission
 @login_required(login_url="/kingadmin/login/")
-def display_table_list(request,app_name,table_name):
+def display_table_list(request,app_name,table_name,embed=False):
+    """
+    
+    :param request: 
+    :param app_name: 
+    :param table_name: 
+    :param embed: 若此函数是被另一个view调用的，则embed=True,通常用在把kingadmin套件嵌入在其他项目时
+    :return: 
+    """
 
     errors = []
     if app_name in site.enabled_admins:
@@ -178,24 +186,24 @@ def display_table_list(request,app_name,table_name):
                                             order_res)
 
 
-
-            return render(request,'kingadmin/model_obj_list.html',
-                                                    {'table_obj':table_obj,
-                                                     'app_name':app_name,
-                                                     'active_url': '/kingadmin/',
-                                                     'paginator':paginator,
-                                                     'errors':errors,
-                                        'enabled_admins':site.enabled_admins}
-                          )
+            return_data = {'table_obj':table_obj,
+                             'app_name':app_name,
+                             'paginator':paginator,
+                             'errors':errors,
+                            'enabled_admins':site.enabled_admins}
+            if embed:
+                return return_data
+            else:
+                return render(request,'kingadmin/model_obj_list.html',return_data)
 
     else:
         raise Http404("url %s/%s not found" % (app_name,table_name) )
 
 
 
-@check_permission
+#@check_permission
 @login_required(login_url="/kingadmin/login/")
-def table_change(request,app_name,table_name,obj_id):
+def table_change(request,app_name,table_name,obj_id,embed=False):
     #print("table change:",app_name,table_name ,obj_id)
 
     if app_name in site.enabled_admins:
@@ -225,16 +233,19 @@ def table_change(request,app_name,table_name,obj_id):
                     if form_obj.is_valid():
                         form_obj.save()
 
-            return render(request,'kingadmin/table_change.html',
-                          {'form_obj':form_obj,
-                           'active_url': '/kingadmin/',
+            return_data = {'form_obj':form_obj,
                            'model_verbose_name':admin_class.model._meta.verbose_name,
                            'model_name':admin_class.model._meta.model_name,
                            'app_name':app_name,
                            'admin_class':admin_class,
                            'enabled_admins': site.enabled_admins
 
-                            })
+                            }
+            if embed:
+                return return_data
+            else:
+                return render(request,'kingadmin/table_change.html',return_data)
+
     else:
         raise Http404("url %s/%s not found" %(app_name,table_name)  )
 

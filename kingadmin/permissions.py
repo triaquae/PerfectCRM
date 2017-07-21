@@ -16,8 +16,10 @@ def perm_check(*args,**kwargs):
     print('---perm:',request.user,request.user.is_authenticated(),current_url_name)
     #match_flag = False
     match_key = None
+    match_results = [False,] #后面会覆盖，加个False是为了让all(match_results)不出错
     if request.user.is_authenticated() is False:
          return redirect(settings.LOGIN_URL)
+
 
     for permission_key,permission_val in  perm_dic.items():
 

@@ -1,0 +1,17 @@
+<script>
+    $(document).ready(function () {
+
+        $('input[type="checkbox"][data-tag="editable"]').change(function() {
+             if(this.checked) {
+                 // do something when checked
+                 console.log("checked...")
+                 $(this).val("True")
+
+             }else {
+                 console.log("unchekc")
+                  $(this).val("False")
+             }
+        });
+
+    });//end doc ready
+</script>
