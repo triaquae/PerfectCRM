@@ -444,6 +444,7 @@ def  check_pop_up_window (request,form_obj):
                     window.close();
                 </script>
                 ''' % (form_obj.instance.id,form_obj.instance,to_field_name)
+                #print('call popupCallback function')
                 return mark_safe(ele)
 
         return ''

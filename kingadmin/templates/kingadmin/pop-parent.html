@@ -1,0 +1,19 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Popup Example</title>
+</head>
+<body>
+<script>
+function popupCallback(str){
+    console.log("This is callback:" + str);
+}
+function openPopup(){
+    popname = window.open( "popup.html", "popname", "status=1, height=500, width=600, toolbar=0,resizable=0");
+    popname.window.focus();
+}
+</script>
+<a href="javascript:openPopup();">Click to open popup</a>
+</body>
+</html>

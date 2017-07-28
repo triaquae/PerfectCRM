@@ -314,10 +314,11 @@ def table_add(request,app_name,table_name):
                             form_obj = model_form()
 
                         else: #return to table list page
-                            if "_popup=1"  not in request.get_full_path():
+                            if "_popup=1" not in request.get_full_path():
                                 redirect_url = request.path.rstrip("/add/")
                                 return redirect(redirect_url)
-
+                            else:
+                                print("pop up add windows....")
             return render(request, 'kingadmin/table_add.html',
                           {'form_obj': form_obj,
                            'model_name': admin_class.model._meta.model_name,
@@ -325,7 +326,7 @@ def table_add(request,app_name,table_name):
                            'model_db_table':admin_class.model._meta.db_table,
                            'admin_class': admin_class,
                            'app_name': app_name,
-                           'active_url': '/kingadmin/',
+                           #'active_url': '/kingadmin/',
                            'enabled_admins': site.enabled_admins
                            })
 
